@@ -1,6 +1,5 @@
 (function () {
   const LANGS = ["en", "ar", "ru"];
-  const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
   const STORAGE = "northline-lang";
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -63,61 +62,59 @@
     if (banner && s.showPlaceholderBanner) banner.classList.add("is-on");
   }
 
+  function esc(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function newsLang() {
+    const lang = document.documentElement.lang || "en";
+    if (lang.startsWith("ar")) return "ar";
+    if (lang.startsWith("ru")) return "ru";
+    return "en";
+  }
+
+  function formatNewsDate(iso, lang) {
+    const date = new Date(iso + "T12:00:00");
+    const locale = lang === "ar" ? "ar" : lang === "ru" ? "ru-RU" : "en-GB";
+    return new Intl.DateTimeFormat(locale, {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  }
+
   function renderHome(dict) {
-    const offer = $("#offer-grid");
-    if (offer) {
-      offer.innerHTML = dict.offer.items
-        .map(
-          (item, i) =>
-            `<article class="offer-row"><span class="offer-num">${ROMAN[i] || i + 1}</span><div><h3>${item.title}</h3><p>${item.body}</p></div></article>`
-        )
-        .join("");
-    }
+    const grid = $("#news-grid");
+    const items = window.NEWS;
+    if (!grid || !Array.isArray(items)) return;
 
-    const mandates = $("#mandate-list");
-    if (mandates && dict.mandates) {
-      mandates.innerHTML = dict.mandates.items
-        .map(
-          (m) =>
-            `<article class="mandate"><time>${m.year}</time><strong>${m.title}</strong><span>${m.sector}</span></article>`
-        )
-        .join("");
-    }
-    const sectors = $("#sector-list");
-    if (sectors) {
-      sectors.innerHTML = dict.sectors.items
-        .map((name) => `<span class="sector">${name}</span>`)
-        .join("");
-    }
-
-    const stats = $("#stats");
-    if (stats) {
-      stats.innerHTML = dict.proof.stats
-        .map(
-          (s) =>
-            `<div class="stat"><strong>${s.value}</strong><span>${s.label}</span></div>`
-        )
-        .join("");
-    }
-
-    const why = $("#why-grid");
-    if (why) {
-      why.innerHTML = dict.why.items
-        .map(
-          (item, i) =>
-            `<article class="why-card"><span class="why-index">0${i + 1}</span><h3>${item.title}</h3><p>${item.body}</p></article>`
-        )
-        .join("");
-    }
-
-    const global = $("#media-global");
-    if (global) {
-      global.innerHTML = dict.coverage.globalNames.map((n) => `<li>${n}</li>`).join("");
-    }
-    const regional = $("#media-regional");
-    if (regional) {
-      regional.innerHTML = dict.coverage.regionalNames.map((n) => `<li>${n}</li>`).join("");
-    }
+    const lang = newsLang();
+    grid.innerHTML = items
+      .map((item, i) => {
+        const n = String(i + 1).padStart(2, "0");
+        const title = item.title[lang] || item.title.en;
+        const kind = (dict.desk && dict.desk.kind && dict.desk.kind[item.kind]) || item.kind;
+        const date = formatNewsDate(item.date, lang);
+        const src = "assets/news/news-" + item.img + ".jpg";
+        const lazy = i < 6 ? "eager" : "lazy";
+        return `<button type="button" class="news-card" data-news-index="${i}" aria-haspopup="dialog">
+  <span class="news-frame">
+    <img src="${src}" alt="" width="900" height="1200" loading="${lazy}" decoding="async" />
+    <span class="news-index" aria-hidden="true">${n}</span>
+  </span>
+  <span class="news-meta">
+    <span class="news-outlet">${esc(item.outlet)}</span>
+    <time datetime="${esc(item.date)}">${esc(date)}</time>
+  </span>
+  <span class="news-kind">${esc(kind)}</span>
+  <span class="news-headline">${esc(title)}</span>
+</button>`;
+      })
+      .join("");
   }
 
   function renderLegal(dict, kind) {
@@ -287,6 +284,60 @@
     });
   }
 
+  function setupNews() {
+    const grid = $("#news-grid");
+    const clipping = $("#clipping");
+    const closeBtn = $("#clipping-close");
+    if (!grid || !clipping) return;
+
+    const setOpen = (open) => {
+      clipping.classList.toggle("is-open", open);
+      document.body.classList.toggle("clipping-open", open);
+      clipping.setAttribute("aria-hidden", open ? "false" : "true");
+      clipping.inert = !open;
+      if (open) closeBtn?.focus();
+    };
+
+    const openItem = (index) => {
+      const item = window.NEWS[index];
+      if (!item) return;
+      const lang = newsLang();
+      const dict = window.I18N[lang] || window.I18N.en;
+      const title = item.title[lang] || item.title.en;
+      const lede = item.lede[lang] || item.lede.en;
+      const kind = (dict.desk && dict.desk.kind && dict.desk.kind[item.kind]) || item.kind;
+      const date = formatNewsDate(item.date, lang);
+      const n = String(index + 1).padStart(2, "0");
+      const img = $("#clipping-image");
+      const kicker = $("#clipping-kicker");
+      const heading = $("#clipping-title");
+      const body = $("#clipping-lede");
+      if (img) {
+        img.src = "assets/news/news-" + item.img + ".jpg";
+        img.alt = title;
+      }
+      if (kicker) kicker.textContent = n + "  ·  " + kind + "  ·  " + item.outlet + "  ·  " + date;
+      if (heading) heading.textContent = title;
+      if (body) body.textContent = lede;
+      setOpen(true);
+    };
+
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-news-index]");
+      if (!card) return;
+      openItem(Number(card.dataset.newsIndex));
+    });
+    closeBtn?.addEventListener("click", () => setOpen(false));
+    clipping.addEventListener("click", (e) => {
+      if (e.target === clipping) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && clipping.classList.contains("is-open")) {
+        setOpen(false);
+      }
+    });
+  }
+
   function setupHeader() {
     const header = $("#site-header");
     if (!header) return;
@@ -308,6 +359,7 @@
   setupForm();
   setupBooking();
   setupFilm();
+  setupNews();
   setupHeader();
   setupLangButtons();
 })();

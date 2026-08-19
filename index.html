@@ -27,10 +27,7 @@
       </a>
       <nav class="desk-nav" aria-label="Primary">
         <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#offering" data-i18n="nav.offering">Services</a>
-        <a href="#mandates" data-i18n="nav.mandates">Mandates</a>
-        <a href="#coverage" data-i18n="nav.coverage">Media</a>
-        <a href="#practice" data-i18n="nav.practice">Practice</a>
+        <a href="#desk" data-i18n="nav.desk">The Desk</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-end">
@@ -71,11 +68,8 @@
       </div>
       <nav class="menu-nav" aria-label="Mobile">
         <a class="menu-link" href="#about"><span>01</span><b data-i18n="nav.about">About</b></a>
-        <a class="menu-link" href="#offering"><span>02</span><b data-i18n="nav.offering">Services</b></a>
-        <a class="menu-link" href="#mandates"><span>03</span><b data-i18n="nav.mandates">Mandates</b></a>
-        <a class="menu-link" href="#coverage"><span>04</span><b data-i18n="nav.coverage">Media</b></a>
-        <a class="menu-link" href="#practice"><span>05</span><b data-i18n="nav.practice">Practice</b></a>
-        <a class="menu-link" href="#contact"><span>06</span><b data-i18n="nav.contact">Contact</b></a>
+        <a class="menu-link" href="#desk"><span>02</span><b data-i18n="nav.desk">The Desk</b></a>
+        <a class="menu-link" href="#contact"><span>03</span><b data-i18n="nav.contact">Contact</b></a>
       </nav>
       <div class="menu-footer">
         <div class="lang-switch" role="group" aria-label="Language">
@@ -98,8 +92,8 @@
           </h1>
           <p class="hero-body" data-i18n="hero.body"></p>
           <div class="hero-actions">
-            <a class="btn-ghost" href="#offering">
-              <span data-i18n="hero.cta">Discover the practice</span>
+            <a class="btn-ghost" href="#desk">
+              <span data-i18n="hero.cta">Open the desk</span>
               <span class="arrow" aria-hidden="true"></span>
             </a>
             <button class="film-btn" type="button" data-open-film>
@@ -127,8 +121,8 @@
             <p class="eyebrow" data-i18n="intro.eyebrow">About</p>
             <h2 class="intro-lead" data-i18n="intro.lead"></h2>
             <p class="lede" data-i18n="intro.body"></p>
-            <a class="text-link" href="#practice">
-              <span data-i18n="intro.cta">Continue</span>
+            <a class="text-link" href="#desk">
+              <span data-i18n="intro.cta">Read the season</span>
               <span class="arrow" aria-hidden="true"></span>
             </a>
           </div>
@@ -143,59 +137,22 @@
         </div>
       </section>
 
-      <section class="section offer" id="offering">
-        <div class="wrap">
-          <p class="eyebrow" data-i18n="offer.eyebrow">Services</p>
-          <h2 class="section-title" data-i18n="offer.title"></h2>
-          <p class="lede" data-i18n="offer.intro"></p>
-          <div class="offer-list" id="offer-grid"></div>
-        </div>
-      </section>
-
-      <section class="section mandates" id="mandates">
-        <div class="wrap">
-          <p class="eyebrow" data-i18n="mandates.eyebrow">Mandates</p>
-          <h2 class="section-title" data-i18n="mandates.title"></h2>
-          <p class="sample-note" data-i18n="mandates.note"></p>
-          <div class="mandate-list" id="mandate-list"></div>
-        </div>
-      </section>
-
-      <section class="section sectors" id="sectors">
-        <div class="wrap">
-          <p class="eyebrow" data-i18n="sectors.eyebrow"></p>
-          <h2 class="section-title" data-i18n="sectors.title"></h2>
-          <div class="sector-list" id="sector-list"></div>
-        </div>
-      </section>
-
-      <section class="section proof" id="proof">
-        <div class="wrap">
-          <p class="eyebrow" data-i18n="proof.eyebrow"></p>
-          <h2 class="section-title" data-i18n="proof.title"></h2>
-          <p class="sample-note" data-i18n="proof.note"></p>
-          <div class="stats" id="stats"></div>
-          <p class="proof-awards" data-i18n="proof.awards"></p>
-        </div>
-      </section>
-
-      <section class="section coverage" id="coverage">
-        <div class="wrap">
-          <p class="eyebrow" data-i18n="coverage.eyebrow"></p>
-          <h2 class="section-title" data-i18n="coverage.title"></h2>
-          <p class="lede" data-i18n="coverage.body"></p>
-          <p class="media-label" data-i18n="coverage.global"></p>
-          <ul class="media-names" id="media-global"></ul>
-          <p class="media-label" data-i18n="coverage.regional"></p>
-          <ul class="media-names" id="media-regional"></ul>
-        </div>
-      </section>
-
-      <section class="section practice" id="practice">
-        <div class="wrap">
-          <p class="eyebrow" data-i18n="why.eyebrow"></p>
-          <h2 class="section-title" data-i18n="why.title"></h2>
-          <div class="why-grid" id="why-grid"></div>
+      <section class="section desk" id="desk">
+        <div class="desk-wrap">
+          <header class="desk-masthead">
+            <div class="desk-folio">
+              <p class="eyebrow" data-i18n="desk.eyebrow">Press</p>
+              <p class="desk-volume">
+                <span data-i18n="desk.volume">Vol. I</span>
+                <span aria-hidden="true"> · </span>
+                <span data-i18n="desk.folio">01–30</span>
+              </p>
+            </div>
+            <h2 class="desk-title" data-i18n="desk.title">Thirty dispatches.</h2>
+            <p class="desk-lead" data-i18n="desk.body"></p>
+            <div class="desk-rule" aria-hidden="true"></div>
+          </header>
+          <div class="news-grid" id="news-grid"></div>
         </div>
       </section>
 
@@ -275,6 +232,30 @@
       </div>
     </footer>
 
+    <div
+      class="clipping"
+      id="clipping"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="clipping-title"
+      aria-hidden="true"
+      inert
+    >
+      <button class="clipping-close" id="clipping-close" type="button" data-i18n="desk.close">
+        Close
+      </button>
+      <article class="clipping-sheet">
+        <figure class="clipping-frame">
+          <img id="clipping-image" alt="" />
+        </figure>
+        <div class="clipping-copy">
+          <p class="clipping-kicker" id="clipping-kicker"></p>
+          <h2 id="clipping-title"></h2>
+          <p class="clipping-lede" id="clipping-lede"></p>
+        </div>
+      </article>
+    </div>
+
     <div class="film" id="film" aria-hidden="true" inert>
       <button class="film-close" id="film-close" type="button" data-i18n="film.close">Close</button>
       <div class="film-stage">
@@ -296,6 +277,7 @@
 
     <script src="js/config.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/news.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
