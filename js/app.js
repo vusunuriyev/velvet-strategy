@@ -2,6 +2,7 @@
   const LANGS = ["en", "ar", "ru"];
   const STORAGE = "northline-lang";
   let activeKind = "";
+  let activeOutlet = "";
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -59,6 +60,13 @@
       el.href = waHref;
     });
 
+    $$("[data-if-email]").forEach((el) => {
+      el.hidden = !s.contact.email;
+    });
+    $$("[data-if-calendly]").forEach((el) => {
+      el.hidden = !s.contact.calendlyUrl;
+    });
+
     const banner = $("#placeholder-banner");
     if (banner && s.showPlaceholderBanner) banner.classList.add("is-on");
   }
@@ -92,7 +100,28 @@
     const items = Array.isArray(window.NEWS) ? window.NEWS : [];
     return items
       .map((item, i) => ({ item, i }))
-      .filter((entry) => !activeKind || entry.item.kind === activeKind);
+      .filter((entry) => !activeKind || entry.item.kind === activeKind)
+      .filter((entry) => !activeOutlet || entry.item.outlet === activeOutlet);
+  }
+
+  function filterLabel(dict) {
+    const parts = [];
+    if (activeKind) parts.push(kindLabel(dict, activeKind));
+    if (activeOutlet) parts.push(activeOutlet);
+    return parts.join(" · ");
+  }
+
+  function syncFilters(dict) {
+    const clear = !activeKind && !activeOutlet;
+    $$(".ribbon-all").forEach((btn) => {
+      btn.classList.toggle("is-on", clear);
+      btn.setAttribute("aria-pressed", clear ? "true" : "false");
+    });
+    $$(".press-mark").forEach((btn) => {
+      const on = activeOutlet === btn.dataset.outlet;
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
   }
 
   function layoutRole(index) {
@@ -126,7 +155,7 @@
       `<div class="ribbon-unit" aria-hidden="true">${makeUnit(true)}</div>`;
 
     $$(".ribbon-all").forEach((btn) => {
-      const on = !activeKind;
+      const on = !activeKind && !activeOutlet;
       btn.classList.toggle("is-on", on);
       btn.setAttribute("aria-pressed", on ? "true" : "false");
     });
@@ -139,21 +168,24 @@
     const lang = newsLang();
     const list = visibleNews();
     renderTypeRail(dict);
+    syncFilters(dict);
 
     const titleEl = $("#desk-title");
     const leadEl = $("#desk-lead");
     const countEl = $("#desk-count");
     const showing = $("#desk-showing");
+    const filtered = Boolean(activeKind || activeOutlet);
+    const label = filterLabel(dict);
     if (titleEl) {
-      titleEl.textContent = activeKind ? kindLabel(dict, activeKind) : dict.desk.title;
+      titleEl.textContent = label || dict.desk.title;
     }
     if (leadEl) {
-      leadEl.textContent = activeKind
-        ? (dict.ribbon.showing + " · " + list.length + " " + dict.ribbon.pieces)
+      leadEl.textContent = filtered
+        ? dict.ribbon.showing + " · " + list.length + " " + dict.ribbon.pieces
         : dict.desk.body;
     }
     if (countEl) {
-      countEl.textContent = activeKind
+      countEl.textContent = filtered
         ? String(list.length).padStart(2, "0")
         : dict.desk.folio;
     }
@@ -168,6 +200,11 @@
         year: "numeric",
       }).format(new Date());
     });
+
+    if (!list.length) {
+      grid.innerHTML = `<p class="news-empty">${esc(dict.desk.empty || "")}</p>`;
+      return;
+    }
 
     grid.innerHTML = list
       .map((entry, pos) => {
@@ -325,50 +362,12 @@
 
   function setupBooking() {
     const btn = $("#book-call");
-    const toast = $("#toast");
     if (!btn) return;
     const url = window.SITE.contact.calendlyUrl;
-    if (url) {
-      btn.href = url;
-      btn.target = "_blank";
-      btn.rel = "noopener noreferrer";
-      return;
-    }
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      if (!toast) return;
-      const dict = window.I18N[currentLang()] || window.I18N.en;
-      toast.textContent = dict.contact.bookingSoon;
-      toast.classList.add("is-on");
-      setTimeout(() => toast.classList.remove("is-on"), 4200);
-    });
-  }
-
-  function setupFilm() {
-    const film = $("#film");
-    const closeBtn = $("#film-close");
-    if (!film) return;
-
-    const setOpen = (open) => {
-      film.classList.toggle("is-open", open);
-      document.body.classList.toggle("film-open", open);
-      film.setAttribute("aria-hidden", open ? "false" : "true");
-      film.inert = !open;
-      if (open) closeBtn?.focus();
-    };
-
-    $$("[data-open-film]").forEach((btn) => {
-      btn.addEventListener("click", () => setOpen(true));
-    });
-    closeBtn?.addEventListener("click", () => setOpen(false));
-    film.addEventListener("click", (e) => {
-      if (e.target === film) setOpen(false);
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && film.classList.contains("is-open")) {
-        setOpen(false);
-      }
-    });
+    if (!url) return;
+    btn.href = url;
+    btn.target = "_blank";
+    btn.rel = "noopener noreferrer";
   }
 
   function setupNews() {
@@ -399,13 +398,22 @@
       const kicker = $("#clipping-kicker");
       const heading = $("#clipping-title");
       const body = $("#clipping-lede");
+      const pull = $("#clipping-pull");
+      const printed = $("#clipping-printed");
+      const folio = $("#clipping-folio");
       if (img) {
         img.src = "assets/news/news-" + item.img + ".jpg";
         img.alt = title;
       }
-      if (kicker) kicker.textContent = n + "  ·  " + kind + "  ·  " + item.outlet + "  ·  " + date;
+      if (printed) printed.textContent = (dict.desk.printed || "As printed in") + " " + item.outlet;
+      if (kicker) kicker.textContent = kind + "  ·  " + date;
       if (heading) heading.textContent = title;
+      if (pull) {
+        const first = lede.split(/(?<=[.؟!])\s+/)[0] || lede;
+        pull.textContent = first;
+      }
       if (body) body.textContent = lede;
+      if (folio) folio.textContent = n;
       setOpen(true);
     };
 
@@ -435,24 +443,48 @@
       const next = btn.dataset.kind || "";
       if (btn.classList.contains("ribbon-all") || next === "") {
         activeKind = "";
+        activeOutlet = "";
       } else {
         activeKind = activeKind === next ? "" : next;
       }
       const dict = window.I18N[newsLang()] || window.I18N.en;
       renderHome(dict);
-      const desk = $("#desk");
-      if (desk) {
-        const top = desk.getBoundingClientRect().top + window.scrollY - 96;
-        window.scrollTo({ top, behavior: "smooth" });
-      }
+      scrollToDesk();
     });
+  }
+
+  function setupPress() {
+    const row = $("#press-marks");
+    if (!row) return;
+    row.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-outlet]");
+      if (!btn) return;
+      const next = btn.dataset.outlet || "";
+      activeOutlet = activeOutlet === next ? "" : next;
+      const dict = window.I18N[newsLang()] || window.I18N.en;
+      renderHome(dict);
+      scrollToDesk();
+    });
+  }
+
+  function scrollToDesk() {
+    const desk = $("#desk");
+    const ribbon = $("#editions");
+    if (!desk) return;
+    const offset = (ribbon ? ribbon.getBoundingClientRect().height : 56) + 52;
+    const top = desk.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }
 
   function setupHeader() {
     const header = $("#site-header");
     if (!header) return;
+    const root = document.documentElement;
     const onScroll = () => {
-      header.classList.toggle("is-scrolled", window.scrollY > 24);
+      const compact = window.scrollY > 28;
+      header.classList.toggle("is-scrolled", compact);
+      header.classList.toggle("is-compact", compact);
+      root.style.setProperty("--header-h", compact ? "3.15rem" : "4.75rem");
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -468,9 +500,9 @@
   setupMenu();
   setupForm();
   setupBooking();
-  setupFilm();
   setupNews();
   setupTypes();
+  setupPress();
   setupHeader();
   setupLangButtons();
 })();

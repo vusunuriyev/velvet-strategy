@@ -12,10 +12,10 @@ window.SITE = {
   contact: {
     phoneDisplay: "+994 55 462 77 88",
     phoneHref: "+994554627788",
-    email: "hello@northline-advisors.com",
+    email: "",
     whatsapp: "994554627788",
-    office1: "Dubai International Financial Centre",
-    office2: "Dubai, United Arab Emirates",
+    office1: "Baku",
+    office2: "Azerbaijan",
     /** Paste a Calendly URL here to activate “Book a call”. */
     calendlyUrl: "",
   },
@@ -24,5 +24,5 @@ window.SITE = {
   },
   /** If set, the contact form POSTs here (Formspree, Basin, etc.). */
   formEndpoint: "",
-  showPlaceholderBanner: true,
+  showPlaceholderBanner: false,
 };

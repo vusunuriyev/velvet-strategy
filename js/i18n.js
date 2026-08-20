@@ -11,7 +11,7 @@ window.I18N = {
       about: "About",
       desk: "The Desk",
       contact: "Contact",
-      talk: "Let’s talk",
+      talk: "Write",
       privacy: "Privacy",
       cookies: "Cookies",
     },
@@ -24,7 +24,10 @@ window.I18N = {
       film: "Watch the film",
       edition: "Late city edition",
     },
-    featured: { label: "As seen in" },
+    featured: {
+      label: "As seen in",
+      hint: "Tap a title to open its desk.",
+    },
     film: {
       title: "The atelier",
       body: "A short film of how the house works. Replace this overlay with the client’s showreel before launch.",
@@ -41,8 +44,12 @@ window.I18N = {
       volume: "Vol. I",
       folio: "01–30",
       title: "Thirty dispatches.",
-      body: "Covers, portraits, and evenings from the rooms that still matter — a sample book, ready to be replaced with cleared placements.",
-      close: "Close",
+      body: "Covers, portraits, and evenings from the rooms that still matter.",
+      colophon:
+        "A private press desk in Baku, working in English, Arabic and Russian.",
+      close: "Close the clipping",
+      empty: "Nothing in this column of the edition.",
+      printed: "As printed in",
       kind: {
         cover: "Cover",
         profile: "Portrait",
@@ -63,13 +70,13 @@ window.I18N = {
       pieces: "pieces",
     },
     contact: {
-      eyebrow: "Contact",
-      title: "Start a confidential conversation",
+      eyebrow: "Correspondence",
+      title: "Write to the desk",
       intro:
-        "Tell us who you are and what is moving. We reply personally — not with a ticket number.",
-      phone: "Phone",
+        "A short note is enough. The desk replies in person — not with a ticket number.",
+      phone: "Telephone",
       email: "Email",
-      office: "Office",
+      office: "Desk",
       whatsapp: "WhatsApp",
       book: "Book a call",
       bookingSoon:
@@ -77,14 +84,14 @@ window.I18N = {
       form: {
         name: "Name",
         company: "Company",
-        email: "Email",
+        email: "Reply to",
         phone: "Phone",
-        message: "How can we help?",
+        message: "Your note",
         consent:
           "I agree to the processing of my details as described in the Privacy Notice.",
-        submit: "Send message",
+        submit: "Send the note",
         sending: "Sending…",
-        success: "Thank you. We will be in touch shortly.",
+        success: "Received. The desk will write back shortly.",
         error: "Please complete the required fields.",
         consentError: "Please accept the privacy notice to continue.",
       },
@@ -92,6 +99,8 @@ window.I18N = {
     footer: {
       rights: "All rights reserved.",
       placeholder: "Placeholder brand",
+      colophon:
+        "Printed for the rooms that still read. Baku · English, Arabic, Russian.",
     },
     privacy: {
       title: "Privacy Notice",
@@ -161,7 +170,7 @@ window.I18N = {
       about: "عن الدار",
       desk: "المكتب",
       contact: "تواصل",
-      talk: "لنتحادث",
+      talk: "راسل",
       privacy: "الخصوصية",
       cookies: "ملفات الارتباط",
     },
@@ -174,7 +183,7 @@ window.I18N = {
       film: "شاهد الفيلم",
       edition: "الطبعة المتأخرة",
     },
-    featured: { label: "كما ورد في" },
+    featured: { label: "كما ورد في", hint: "اضغط عنوانًا لتفتح مكتبه." },
     film: {
       title: "المشغل",
       body: "فيلم قصير عن أسلوب الدار. استبدله بعرض العميل قبل الإطلاق.",
@@ -191,8 +200,11 @@ window.I18N = {
       volume: "المجلد الأول",
       folio: "٠١–٣٠",
       title: "ثلاثون بلاغًا.",
-      body: "أغلفة وبورتريهات وأمسيات من الغرف التي لا تزال تهمّ — دفتر نموذجي، يُستبدل بتغطيات مصرّح بها.",
-      close: "إغلاق",
+      body: "أغلفة وبورتريهات وأمسيات من الغرف التي لا تزال تهمّ.",
+      colophon: "مكتب صحافة خاص في باكو، يعمل بالإنجليزية والعربية والروسية.",
+      close: "أغلق القصاصة",
+      empty: "لا شيء في هذا العمود من الطبعة.",
+      printed: "كما طُبع في",
       kind: {
         cover: "غلاف",
         profile: "بورتريه",
@@ -213,9 +225,9 @@ window.I18N = {
       pieces: "مواد",
     },
     contact: {
-      eyebrow: "تواصل",
-      title: "ابدأ حديثًا سريًا",
-      intro: "أخبرنا من أنت وما الذي يتحرك. نرد شخصيًا — لا برقم تذكرة.",
+      eyebrow: "المراسلة",
+      title: "اكتب إلى المكتب",
+      intro: "ملاحظة قصيرة تكفي. يرد المكتب شخصيًا — لا برقم تذكرة.",
       phone: "الهاتف",
       email: "البريد",
       office: "المكتب",
@@ -225,13 +237,13 @@ window.I18N = {
       form: {
         name: "الاسم",
         company: "الشركة",
-        email: "البريد الإلكتروني",
+        email: "الرد إلى",
         phone: "الهاتف",
-        message: "كيف يمكننا المساعدة؟",
+        message: "ملاحظتك",
         consent: "أوافق على معالجة بياناتي كما هو موضح في إشعار الخصوصية.",
-        submit: "إرسال الرسالة",
+        submit: "أرسل الملاحظة",
         sending: "جاري الإرسال…",
-        success: "شكرًا لك. سنتواصل معك قريبًا.",
+        success: "وصلت. سيكتب المكتب إليك قريبًا.",
         error: "يرجى إكمال الحقول المطلوبة.",
         consentError: "يرجى قبول إشعار الخصوصية للمتابعة.",
       },
@@ -239,6 +251,7 @@ window.I18N = {
     footer: {
       rights: "جميع الحقوق محفوظة.",
       placeholder: "علامة تجارية مؤقتة",
+      colophon: "طُبع للغرف التي ما زالت تقرأ. باكو · إنجليزية، عربية، روسية.",
     },
     privacy: {
       title: "إشعار الخصوصية",
@@ -321,7 +334,7 @@ window.I18N = {
       film: "Смотреть фильм",
       edition: "Поздний городской выпуск",
     },
-    featured: { label: "Публикации" },
+    featured: { label: "Публикации", hint: "Нажмите издание, чтобы открыть его стол." },
     film: {
       title: "Ателье",
       body: "Короткий фильм о том, как работает дом. Перед запуском замените на шоурил клиента.",
@@ -338,8 +351,11 @@ window.I18N = {
       volume: "Том I",
       folio: "01–30",
       title: "Тридцать депеш.",
-      body: "Обложки, портреты и вечера из комнат, которые всё ещё имеют значение — макет книги, который заменят согласованными публикациями.",
-      close: "Закрыть",
+      body: "Обложки, портреты и вечера из комнат, которые всё ещё имеют значение.",
+      colophon: "Частная пресс-редакция в Баку. Английский, арабский, русский.",
+      close: "Закрыть вырезку",
+      empty: "В этой колонке выпуска ничего нет.",
+      printed: "Как напечатано в",
       kind: {
         cover: "Обложка",
         profile: "Портрет",
@@ -360,13 +376,12 @@ window.I18N = {
       pieces: "материалов",
     },
     contact: {
-      eyebrow: "Контакты",
-      title: "Начать конфиденциальный разговор",
-      intro:
-        "Напишите, кто вы и что происходит. Отвечаем лично — не номером заявки.",
+      eyebrow: "Переписка",
+      title: "Написать в редакцию",
+      intro: "Короткой записки достаточно. Редакция отвечает лично — не номером заявки.",
       phone: "Телефон",
       email: "Почта",
-      office: "Офис",
+      office: "Редакция",
       whatsapp: "WhatsApp",
       book: "Записать звонок",
       bookingSoon:
@@ -374,14 +389,14 @@ window.I18N = {
       form: {
         name: "Имя",
         company: "Компания",
-        email: "Email",
+        email: "Ответ на",
         phone: "Телефон",
-        message: "Чем помочь?",
+        message: "Ваша записка",
         consent:
           "Я согласен(на) на обработку данных в соответствии с уведомлением о конфиденциальности.",
-        submit: "Отправить",
+        submit: "Отправить записку",
         sending: "Отправка…",
-        success: "Спасибо. Мы свяжемся с вами.",
+        success: "Получено. Редакция ответит вскоре.",
         error: "Заполните обязательные поля.",
         consentError: "Примите уведомление о конфиденциальности, чтобы продолжить.",
       },
@@ -389,6 +404,7 @@ window.I18N = {
     footer: {
       rights: "Все права защищены.",
       placeholder: "Временный бренд",
+      colophon: "Напечатано для комнат, которые ещё читают. Баку · EN, AR, RU.",
     },
     privacy: {
       title: "Уведомление о конфиденциальности",

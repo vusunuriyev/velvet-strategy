@@ -94,7 +94,7 @@ window.NEWS = [
   },
   {
     img: "06",
-    outlet: "Financial Times",
+    outlet: "Forbes",
     date: "2025-10-19",
     kind: "letter",
     title: {
@@ -110,7 +110,7 @@ window.NEWS = [
   },
   {
     img: "07",
-    outlet: "Architectural Digest",
+    outlet: "Tatler",
     date: "2025-09-27",
     kind: "launch",
     title: {
@@ -126,7 +126,7 @@ window.NEWS = [
   },
   {
     img: "08",
-    outlet: "Town & Country",
+    outlet: "Esquire",
     date: "2025-08-16",
     kind: "campaign",
     title: {
@@ -142,7 +142,7 @@ window.NEWS = [
   },
   {
     img: "09",
-    outlet: "Monocle",
+    outlet: "Marie Claire",
     date: "2025-07-04",
     kind: "dispatch",
     title: {
@@ -158,7 +158,7 @@ window.NEWS = [
   },
   {
     img: "10",
-    outlet: "Vogue",
+    outlet: "Associated Press",
     date: "2025-06-21",
     kind: "event",
     title: {
@@ -173,8 +173,8 @@ window.NEWS = [
     },
   },
   {
-    img: "02",
-    outlet: "Harper’s Bazaar",
+    img: "11",
+    outlet: "Forbes",
     date: "2025-05-30",
     kind: "cover",
     title: {
@@ -189,8 +189,8 @@ window.NEWS = [
     },
   },
   {
-    img: "03",
-    outlet: "GQ",
+    img: "12",
+    outlet: "Tatler",
     date: "2025-04-18",
     kind: "interview",
     title: {
@@ -205,8 +205,8 @@ window.NEWS = [
     },
   },
   {
-    img: "04",
-    outlet: "WWD",
+    img: "13",
+    outlet: "Esquire",
     date: "2025-03-09",
     kind: "event",
     title: {
@@ -221,8 +221,8 @@ window.NEWS = [
     },
   },
   {
-    img: "01",
-    outlet: "Robb Report",
+    img: "14",
+    outlet: "Marie Claire",
     date: "2025-02-14",
     kind: "profile",
     title: {
@@ -237,8 +237,8 @@ window.NEWS = [
     },
   },
   {
-    img: "05",
-    outlet: "Bloomberg",
+    img: "15",
+    outlet: "Associated Press",
     date: "2025-01-07",
     kind: "dispatch",
     title: {
@@ -253,8 +253,8 @@ window.NEWS = [
     },
   },
   {
-    img: "10",
-    outlet: "Vanity Fair",
+    img: "16",
+    outlet: "Forbes",
     date: "2024-12-12",
     kind: "campaign",
     title: {
@@ -269,7 +269,7 @@ window.NEWS = [
     },
   },
   {
-    img: "08",
+    img: "17",
     outlet: "Tatler",
     date: "2024-11-22",
     kind: "society",
@@ -285,8 +285,8 @@ window.NEWS = [
     },
   },
   {
-    img: "04",
-    outlet: "Marie Claire",
+    img: "18",
+    outlet: "Esquire",
     date: "2024-10-05",
     kind: "launch",
     title: {
@@ -301,8 +301,8 @@ window.NEWS = [
     },
   },
   {
-    img: "05",
-    outlet: "Forbes",
+    img: "19",
+    outlet: "Marie Claire",
     date: "2024-09-16",
     kind: "city",
     title: {
@@ -317,8 +317,8 @@ window.NEWS = [
     },
   },
   {
-    img: "04",
-    outlet: "Esquire",
+    img: "20",
+    outlet: "Associated Press",
     date: "2024-08-28",
     kind: "event",
     title: {
@@ -333,8 +333,8 @@ window.NEWS = [
     },
   },
   {
-    img: "06",
-    outlet: "The Times",
+    img: "21",
+    outlet: "Financial Times",
     date: "2024-07-19",
     kind: "letter",
     title: {
@@ -349,8 +349,8 @@ window.NEWS = [
     },
   },
   {
-    img: "03",
-    outlet: "Wall Street Journal",
+    img: "22",
+    outlet: "Vogue",
     date: "2024-06-11",
     kind: "profile",
     title: {
@@ -365,8 +365,8 @@ window.NEWS = [
     },
   },
   {
-    img: "10",
-    outlet: "Elle",
+    img: "23",
+    outlet: "Wall Street Journal",
     date: "2024-05-03",
     kind: "cover",
     title: {
@@ -381,8 +381,8 @@ window.NEWS = [
     },
   },
   {
-    img: "09",
-    outlet: "Reuters",
+    img: "24",
+    outlet: "Bloomberg",
     date: "2024-04-21",
     kind: "dispatch",
     title: {
@@ -397,7 +397,7 @@ window.NEWS = [
     },
   },
   {
-    img: "08",
+    img: "25",
     outlet: "Vanity Fair",
     date: "2024-03-14",
     kind: "society",
@@ -413,8 +413,8 @@ window.NEWS = [
     },
   },
   {
-    img: "07",
-    outlet: "Architectural Digest",
+    img: "26",
+    outlet: "GQ",
     date: "2024-02-08",
     kind: "interview",
     title: {
@@ -429,8 +429,8 @@ window.NEWS = [
     },
   },
   {
-    img: "02",
-    outlet: "Harper’s Bazaar",
+    img: "27",
+    outlet: "Architectural Digest",
     date: "2024-01-26",
     kind: "launch",
     title: {
@@ -445,8 +445,8 @@ window.NEWS = [
     },
   },
   {
-    img: "03",
-    outlet: "GQ",
+    img: "28",
+    outlet: "Monocle",
     date: "2023-12-09",
     kind: "campaign",
     title: {
@@ -461,8 +461,8 @@ window.NEWS = [
     },
   },
   {
-    img: "09",
-    outlet: "Monocle",
+    img: "29",
+    outlet: "Reuters",
     date: "2023-11-17",
     kind: "city",
     title: {
@@ -477,8 +477,8 @@ window.NEWS = [
     },
   },
   {
-    img: "01",
-    outlet: "Tatler",
+    img: "30",
+    outlet: "Harper’s Bazaar",
     date: "2023-10-02",
     kind: "letter",
     title: {

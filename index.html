@@ -100,29 +100,45 @@
               <span data-i18n="hero.cta">Open today’s edition</span>
               <span class="arrow" aria-hidden="true"></span>
             </a>
-            <button class="film-btn" type="button" data-open-film>
-              <span class="film-ring" aria-hidden="true"><i></i></span>
-              <span data-i18n="hero.film">Watch the film</span>
-            </button>
           </div>
         </div>
       </section>
 
       <section class="featured" aria-label="Press">
         <p data-i18n="featured.label">As seen in</p>
-        <ul class="featured-logos">
-          <li><img src="assets/press/forbes.svg" alt="Forbes" /></li>
-          <li><img src="assets/press/marie-claire.svg" alt="Marie Claire" /></li>
-          <li><img src="assets/press/esquire.svg" alt="Esquire" /></li>
-          <li><img src="assets/press/tatler.svg" alt="Tatler" /></li>
-          <li><img src="assets/press/ap.svg" alt="Associated Press" /></li>
+        <ul class="featured-logos" id="press-marks">
+          <li>
+            <button type="button" class="press-mark" data-outlet="Forbes" aria-pressed="false">
+              <img src="assets/press/forbes.svg" alt="Forbes" />
+            </button>
+          </li>
+          <li>
+            <button type="button" class="press-mark" data-outlet="Marie Claire" aria-pressed="false">
+              <img src="assets/press/marie-claire.svg" alt="Marie Claire" />
+            </button>
+          </li>
+          <li>
+            <button type="button" class="press-mark" data-outlet="Esquire" aria-pressed="false">
+              <img src="assets/press/esquire.svg" alt="Esquire" />
+            </button>
+          </li>
+          <li>
+            <button type="button" class="press-mark" data-outlet="Tatler" aria-pressed="false">
+              <img src="assets/press/tatler.svg" alt="Tatler" />
+            </button>
+          </li>
+          <li>
+            <button type="button" class="press-mark" data-outlet="Associated Press" aria-pressed="false">
+              <img src="assets/press/ap.svg" alt="Associated Press" />
+            </button>
+          </li>
         </ul>
+        <p class="featured-hint" data-i18n="featured.hint"></p>
       </section>
 
       <section class="ribbon" id="editions" aria-label="Press departments">
         <div class="ribbon-shell">
           <button type="button" class="ribbon-all" data-kind="" aria-pressed="true">
-            <span class="live-dot" aria-hidden="true"></span>
             <span data-i18n="ribbon.all">The edition</span>
           </button>
           <div class="ribbon-track" id="type-track">
@@ -144,6 +160,7 @@
             </div>
             <h2 class="desk-title" id="desk-title" data-i18n="desk.title">Thirty dispatches.</h2>
             <p class="desk-lead" id="desk-lead" data-i18n="desk.body"></p>
+            <p class="desk-colophon" data-i18n="desk.colophon"></p>
             <p class="desk-showing" id="desk-showing" hidden></p>
             <div class="desk-rule" aria-hidden="true"></div>
           </header>
@@ -154,20 +171,20 @@
       <section class="section contact" id="contact">
         <div class="wrap contact-grid">
           <div>
-            <p class="eyebrow" data-i18n="contact.eyebrow"></p>
-            <h2 class="section-title" data-i18n="contact.title"></h2>
+            <p class="eyebrow" data-i18n="contact.eyebrow">Correspondence</p>
+            <h2 class="section-title" data-i18n="contact.title">Write to the desk</h2>
             <p class="lede" data-i18n="contact.intro"></p>
             <div class="contact-list">
               <div class="contact-item">
                 <span data-i18n="contact.phone">Phone</span>
-                <a data-contact="phone" href="tel:+971500000000">+971 50 000 0000</a>
+                <a data-contact="phone" href="tel:+994554627788">+994 55 462 77 88</a>
               </div>
-              <div class="contact-item">
+              <div class="contact-item" data-if-email hidden>
                 <span data-i18n="contact.email">Email</span>
-                <a data-contact="email" href="mailto:hello@northline-advisors.com"></a>
+                <a data-contact="email" href="#"></a>
               </div>
               <div class="contact-item">
-                <span data-i18n="contact.office">Office</span>
+                <span data-i18n="contact.office">Desk</span>
                 <p>
                   <span data-contact="office1"></span><br />
                   <span data-contact="office2"></span>
@@ -176,7 +193,7 @@
             </div>
             <div class="contact-actions">
               <a class="btn-ghost" data-wa href="#" data-i18n="contact.whatsapp">WhatsApp</a>
-              <a class="btn-ghost" id="book-call" href="#contact" data-i18n="contact.book">Book a call</a>
+              <a class="btn-ghost" id="book-call" href="#contact" data-if-calendly hidden data-i18n="contact.book">Book a call</a>
             </div>
           </div>
           <form class="form" id="contact-form" novalidate>
@@ -185,19 +202,11 @@
               <input id="name" name="name" autocomplete="name" required />
             </div>
             <div class="field">
-              <label for="company" data-i18n="contact.form.company">Company</label>
-              <input id="company" name="company" autocomplete="organization" />
-            </div>
-            <div class="field">
-              <label for="email" data-i18n="contact.form.email">Email</label>
+              <label for="email" data-i18n="contact.form.email">Reply to</label>
               <input id="email" name="email" type="email" autocomplete="email" required />
             </div>
             <div class="field">
-              <label for="phone" data-i18n="contact.form.phone">Phone</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" />
-            </div>
-            <div class="field">
-              <label for="message" data-i18n="contact.form.message"></label>
+              <label for="message" data-i18n="contact.form.message">Your note</label>
               <textarea id="message" name="message" required></textarea>
             </div>
             <label class="consent">
@@ -208,7 +217,7 @@
               >
             </label>
             <button class="btn-solid" id="form-submit" type="submit" data-i18n="contact.form.submit">
-              Send message
+              Send the note
             </button>
             <p class="form-status" id="form-status" role="status"></p>
           </form>
@@ -217,6 +226,7 @@
     </main>
 
     <footer class="site-footer">
+      <p class="footer-colophon" data-i18n="footer.colophon"></p>
       <p>
         © <span data-year></span> <span data-brand="legal"></span>.
         <span data-i18n="footer.rights"></span>
@@ -242,23 +252,16 @@
       <article class="clipping-sheet">
         <figure class="clipping-frame">
           <img id="clipping-image" alt="" />
+          <span class="clipping-folio" id="clipping-folio" aria-hidden="true"></span>
         </figure>
         <div class="clipping-copy">
+          <p class="clipping-printed" id="clipping-printed"></p>
           <p class="clipping-kicker" id="clipping-kicker"></p>
           <h2 id="clipping-title"></h2>
+          <blockquote class="clipping-pull" id="clipping-pull"></blockquote>
           <p class="clipping-lede" id="clipping-lede"></p>
         </div>
       </article>
-    </div>
-
-    <div class="film" id="film" aria-hidden="true" inert>
-      <button class="film-close" id="film-close" type="button" data-i18n="film.close">Close</button>
-      <div class="film-stage">
-        <div class="film-copy">
-          <h2 data-i18n="film.title">The atelier</h2>
-          <p data-i18n="film.body"></p>
-        </div>
-      </div>
     </div>
 
     <a class="wa" data-wa href="#" data-i18n-aria="contact.whatsapp" aria-label="WhatsApp">
