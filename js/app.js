@@ -1,6 +1,7 @@
 (function () {
   const LANGS = ["en", "ar", "ru"];
   const STORAGE = "northline-lang";
+  let activeKind = "";
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -87,31 +88,117 @@
     }).format(date);
   }
 
+  function visibleNews() {
+    const items = Array.isArray(window.NEWS) ? window.NEWS : [];
+    return items
+      .map((item, i) => ({ item, i }))
+      .filter((entry) => !activeKind || entry.item.kind === activeKind);
+  }
+
+  function layoutRole(index) {
+    if (index === 0) return "lead";
+    if (index === 1 || index === 2) return "column";
+    if (index % 6 === 4) return "banner";
+    if (index % 5 === 3) return "brief";
+    return "standard";
+  }
+
+  function kindLabel(dict, kind) {
+    return (dict.desk && dict.desk.kind && dict.desk.kind[kind]) || kind;
+  }
+
+  function renderTypeRail(dict) {
+    const rail = $("#type-rail");
+    const types = window.NEWS_TYPES;
+    if (!rail || !Array.isArray(types)) return;
+
+    const makeUnit = (hidden) =>
+      types
+        .map((kind) => {
+          const on = activeKind === kind;
+          const tab = hidden ? ' tabindex="-1"' : "";
+          return `<button type="button"${tab} class="ribbon-item${on ? " is-on" : ""}" data-kind="${kind}" aria-pressed="${on ? "true" : "false"}">${esc(kindLabel(dict, kind))}</button><span class="ribbon-sep" aria-hidden="true">†</span>`;
+        })
+        .join("");
+
+    rail.innerHTML =
+      `<div class="ribbon-unit">${makeUnit(false)}</div>` +
+      `<div class="ribbon-unit" aria-hidden="true">${makeUnit(true)}</div>`;
+
+    $$(".ribbon-all").forEach((btn) => {
+      const on = !activeKind;
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
   function renderHome(dict) {
     const grid = $("#news-grid");
-    const items = window.NEWS;
-    if (!grid || !Array.isArray(items)) return;
+    if (!grid) return;
 
     const lang = newsLang();
-    grid.innerHTML = items
-      .map((item, i) => {
+    const list = visibleNews();
+    renderTypeRail(dict);
+
+    const titleEl = $("#desk-title");
+    const leadEl = $("#desk-lead");
+    const countEl = $("#desk-count");
+    const showing = $("#desk-showing");
+    if (titleEl) {
+      titleEl.textContent = activeKind ? kindLabel(dict, activeKind) : dict.desk.title;
+    }
+    if (leadEl) {
+      leadEl.textContent = activeKind
+        ? (dict.ribbon.showing + " · " + list.length + " " + dict.ribbon.pieces)
+        : dict.desk.body;
+    }
+    if (countEl) {
+      countEl.textContent = activeKind
+        ? String(list.length).padStart(2, "0")
+        : dict.desk.folio;
+    }
+    if (showing) showing.hidden = true;
+
+    $$("[data-edition-date]").forEach((el) => {
+      el.dateTime = new Date().toISOString().slice(0, 10);
+      el.textContent = new Intl.DateTimeFormat(lang === "ar" ? "ar" : lang === "ru" ? "ru-RU" : "en-GB", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).format(new Date());
+    });
+
+    grid.innerHTML = list
+      .map((entry, pos) => {
+        const item = entry.item;
+        const i = entry.i;
         const n = String(i + 1).padStart(2, "0");
         const title = item.title[lang] || item.title.en;
-        const kind = (dict.desk && dict.desk.kind && dict.desk.kind[item.kind]) || item.kind;
+        const lede = item.lede[lang] || item.lede.en;
+        const kind = kindLabel(dict, item.kind);
         const date = formatNewsDate(item.date, lang);
         const src = "assets/news/news-" + item.img + ".jpg";
-        const lazy = i < 6 ? "eager" : "lazy";
-        return `<button type="button" class="news-card" data-news-index="${i}" aria-haspopup="dialog">
+        const lazy = pos < 4 ? "eager" : "lazy";
+        const role = layoutRole(pos);
+        const deck =
+          role === "lead" || role === "banner"
+            ? `<span class="news-deck">${esc(lede)}</span>`
+            : "";
+        return `<button type="button" class="news-card is-${role}" data-news-index="${i}" data-kind="${item.kind}" style="--i:${pos}" aria-haspopup="dialog">
   <span class="news-frame">
     <img src="${src}" alt="" width="900" height="1200" loading="${lazy}" decoding="async" />
     <span class="news-index" aria-hidden="true">${n}</span>
   </span>
-  <span class="news-meta">
-    <span class="news-outlet">${esc(item.outlet)}</span>
-    <time datetime="${esc(item.date)}">${esc(date)}</time>
+  <span class="news-copy">
+    <span class="news-meta">
+      <span class="news-outlet">${esc(item.outlet)}</span>
+      <time datetime="${esc(item.date)}">${esc(date)}</time>
+    </span>
+    <span class="news-kind">${esc(kind)}</span>
+    <span class="news-headline">${esc(title)}</span>
+    ${deck}
   </span>
-  <span class="news-kind">${esc(kind)}</span>
-  <span class="news-headline">${esc(title)}</span>
 </button>`;
       })
       .join("");
@@ -338,6 +425,29 @@
     });
   }
 
+  function setupTypes() {
+    const ribbon = $("#editions");
+    if (!ribbon) return;
+
+    ribbon.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-kind]");
+      if (!btn) return;
+      const next = btn.dataset.kind || "";
+      if (btn.classList.contains("ribbon-all") || next === "") {
+        activeKind = "";
+      } else {
+        activeKind = activeKind === next ? "" : next;
+      }
+      const dict = window.I18N[newsLang()] || window.I18N.en;
+      renderHome(dict);
+      const desk = $("#desk");
+      if (desk) {
+        const top = desk.getBoundingClientRect().top + window.scrollY - 96;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    });
+  }
+
   function setupHeader() {
     const header = $("#site-header");
     if (!header) return;
@@ -360,6 +470,7 @@
   setupBooking();
   setupFilm();
   setupNews();
+  setupTypes();
   setupHeader();
   setupLangButtons();
 })();

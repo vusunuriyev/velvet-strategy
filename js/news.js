@@ -1,3 +1,16 @@
+window.NEWS_TYPES = [
+  "cover",
+  "profile",
+  "interview",
+  "society",
+  "dispatch",
+  "event",
+  "city",
+  "letter",
+  "launch",
+  "campaign",
+];
+
 window.NEWS = [
   {
     img: "01",
@@ -99,7 +112,7 @@ window.NEWS = [
     img: "07",
     outlet: "Architectural Digest",
     date: "2025-09-27",
-    kind: "profile",
+    kind: "launch",
     title: {
       en: "The long corridor, and what it admits",
       ar: "الممر الطويل، وما يسمح بدخوله",
@@ -115,7 +128,7 @@ window.NEWS = [
     img: "08",
     outlet: "Town & Country",
     date: "2025-08-16",
-    kind: "society",
+    kind: "campaign",
     title: {
       en: "A supper that never needed a list",
       ar: "عشاء لم يحتج إلى قائمة",
@@ -147,7 +160,7 @@ window.NEWS = [
     img: "10",
     outlet: "Vogue",
     date: "2025-06-21",
-    kind: "cover",
+    kind: "event",
     title: {
       en: "Velvet, gold rope, no logo",
       ar: "مخمل وحبل ذهب ولا شعار",
@@ -243,7 +256,7 @@ window.NEWS = [
     img: "10",
     outlet: "Vanity Fair",
     date: "2024-12-12",
-    kind: "cover",
+    kind: "campaign",
     title: {
       en: "Silk, shadow, a single sentence",
       ar: "حرير وظل وجملة واحدة",
@@ -275,7 +288,7 @@ window.NEWS = [
     img: "04",
     outlet: "Marie Claire",
     date: "2024-10-05",
-    kind: "interview",
+    kind: "launch",
     title: {
       en: "She edits the night before it happens",
       ar: "تحرّر الليل قبل أن يحدث",
@@ -419,7 +432,7 @@ window.NEWS = [
     img: "02",
     outlet: "Harper’s Bazaar",
     date: "2024-01-26",
-    kind: "event",
+    kind: "launch",
     title: {
       en: "The last dance before the cameras left",
       ar: "الرقصة الأخيرة قبل أن تغادر الكاميرات",
@@ -435,7 +448,7 @@ window.NEWS = [
     img: "03",
     outlet: "GQ",
     date: "2023-12-09",
-    kind: "profile",
+    kind: "campaign",
     title: {
       en: "Measured, never modest",
       ar: "موزون، وليس متواضعًا",
@@ -467,7 +480,7 @@ window.NEWS = [
     img: "01",
     outlet: "Tatler",
     date: "2023-10-02",
-    kind: "cover",
+    kind: "letter",
     title: {
       en: "The season, bound in cloth",
       ar: "الموسم، مجلّد بالقماش",

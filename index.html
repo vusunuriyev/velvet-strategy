@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Barlow+Condensed:wght@400;500;600&family=EB+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Manrope:wght@400;500;600&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
@@ -26,8 +26,7 @@
         <img src="assets/logo-velvet.png" alt="Velvet Strategy" width="580" height="301" />
       </a>
       <nav class="desk-nav" aria-label="Primary">
-        <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#desk" data-i18n="nav.desk">The Desk</a>
+        <a href="#editions" data-i18n="nav.desk">The Desk</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-end">
@@ -67,9 +66,8 @@
         </button>
       </div>
       <nav class="menu-nav" aria-label="Mobile">
-        <a class="menu-link" href="#about"><span>01</span><b data-i18n="nav.about">About</b></a>
-        <a class="menu-link" href="#desk"><span>02</span><b data-i18n="nav.desk">The Desk</b></a>
-        <a class="menu-link" href="#contact"><span>03</span><b data-i18n="nav.contact">Contact</b></a>
+        <a class="menu-link" href="#editions"><span>01</span><b data-i18n="nav.desk">The Desk</b></a>
+        <a class="menu-link" href="#contact"><span>02</span><b data-i18n="nav.contact">Contact</b></a>
       </nav>
       <div class="menu-footer">
         <div class="lang-switch" role="group" aria-label="Language">
@@ -86,14 +84,20 @@
         <div class="hero-bg" aria-hidden="true"></div>
         <div class="hero-veil" aria-hidden="true"></div>
         <div class="hero-copy">
+          <p class="hero-edition">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.edition">Late city edition</span>
+            <span aria-hidden="true"> · </span>
+            <time data-edition-date></time>
+          </p>
           <h1 class="hero-title">
-            <span data-i18n="hero.kicker">Counsel that steadies</span>
-            <em data-i18n="hero.accent">the room.</em>
+            <span data-i18n="hero.kicker">The evening paper</span>
+            <em data-i18n="hero.accent">is still being set.</em>
           </h1>
           <p class="hero-body" data-i18n="hero.body"></p>
           <div class="hero-actions">
-            <a class="btn-ghost" href="#desk">
-              <span data-i18n="hero.cta">Open the desk</span>
+            <a class="btn-ghost" href="#editions">
+              <span data-i18n="hero.cta">Open today’s edition</span>
               <span class="arrow" aria-hidden="true"></span>
             </a>
             <button class="film-btn" type="button" data-open-film>
@@ -115,25 +119,15 @@
         </ul>
       </section>
 
-      <section class="section about" id="about">
-        <div class="wrap about-grid">
-          <div class="about-copy">
-            <p class="eyebrow" data-i18n="intro.eyebrow">About</p>
-            <h2 class="intro-lead" data-i18n="intro.lead"></h2>
-            <p class="lede" data-i18n="intro.body"></p>
-            <a class="text-link" href="#desk">
-              <span data-i18n="intro.cta">Read the season</span>
-              <span class="arrow" aria-hidden="true"></span>
-            </a>
+      <section class="ribbon" id="editions" aria-label="Press departments">
+        <div class="ribbon-shell">
+          <button type="button" class="ribbon-all" data-kind="" aria-pressed="true">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span data-i18n="ribbon.all">The edition</span>
+          </button>
+          <div class="ribbon-track" id="type-track">
+            <div class="ribbon-run" id="type-rail"></div>
           </div>
-          <figure class="about-frame">
-            <img
-              src="assets/atelier-still.png"
-              alt="A dark leather notebook and silver pen on a walnut table beside a navy velvet chair."
-              width="1600"
-              height="1200"
-            />
-          </figure>
         </div>
       </section>
 
@@ -145,11 +139,12 @@
               <p class="desk-volume">
                 <span data-i18n="desk.volume">Vol. I</span>
                 <span aria-hidden="true"> · </span>
-                <span data-i18n="desk.folio">01–30</span>
+                <span id="desk-count">01–30</span>
               </p>
             </div>
-            <h2 class="desk-title" data-i18n="desk.title">Thirty dispatches.</h2>
-            <p class="desk-lead" data-i18n="desk.body"></p>
+            <h2 class="desk-title" id="desk-title" data-i18n="desk.title">Thirty dispatches.</h2>
+            <p class="desk-lead" id="desk-lead" data-i18n="desk.body"></p>
+            <p class="desk-showing" id="desk-showing" hidden></p>
             <div class="desk-rule" aria-hidden="true"></div>
           </header>
           <div class="news-grid" id="news-grid"></div>
