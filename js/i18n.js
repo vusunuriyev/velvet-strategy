@@ -69,6 +69,15 @@ window.I18N = {
       showing: "Now reading",
       pieces: "pieces",
     },
+    article: {
+      back: "The edition",
+      close: "Close",
+      prev: "Previous dispatch",
+      next: "Next dispatch",
+      more: "Also in this edition",
+      byline: "The Desk · Baku",
+      finis: "Finis",
+    },
     contact: {
       eyebrow: "Correspondence",
       title: "Write to the desk",
@@ -224,6 +233,15 @@ window.I18N = {
       showing: "تقرأ الآن",
       pieces: "مواد",
     },
+    article: {
+      back: "الطبعة",
+      close: "إغلاق",
+      prev: "البلاغ السابق",
+      next: "البلاغ التالي",
+      more: "أيضًا في هذه الطبعة",
+      byline: "المكتب · باكو",
+      finis: "تمّ",
+    },
     contact: {
       eyebrow: "المراسلة",
       title: "اكتب إلى المكتب",
@@ -374,6 +392,15 @@ window.I18N = {
       hint: "Нажмите тип, чтобы читать только его.",
       showing: "Сейчас",
       pieces: "материалов",
+    },
+    article: {
+      back: "К выпуску",
+      close: "Закрыть",
+      prev: "Предыдущая депеша",
+      next: "Следующая депеша",
+      more: "Также в этом выпуске",
+      byline: "Редакция · Баку",
+      finis: "Конец",
     },
     contact: {
       eyebrow: "Переписка",

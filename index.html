@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Velvet Strategy</title>
     <meta
       name="description"
@@ -238,30 +238,61 @@
     </footer>
 
     <div
-      class="clipping"
-      id="clipping"
+      class="article"
+      id="article"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="clipping-title"
+      aria-labelledby="article-title"
       aria-hidden="true"
       inert
     >
-      <button class="clipping-close" id="clipping-close" type="button" data-i18n="desk.close">
-        Close
-      </button>
-      <article class="clipping-sheet">
-        <figure class="clipping-frame">
-          <img id="clipping-image" alt="" />
-          <span class="clipping-folio" id="clipping-folio" aria-hidden="true"></span>
-        </figure>
-        <div class="clipping-copy">
-          <p class="clipping-printed" id="clipping-printed"></p>
-          <p class="clipping-kicker" id="clipping-kicker"></p>
-          <h2 id="clipping-title"></h2>
-          <blockquote class="clipping-pull" id="clipping-pull"></blockquote>
-          <p class="clipping-lede" id="clipping-lede"></p>
+      <div class="article-progress" aria-hidden="true"><i id="article-progress"></i></div>
+      <header class="article-bar">
+        <button class="article-back" id="article-back" type="button" data-i18n="article.back">
+          The edition
+        </button>
+        <p class="article-bar-meta" id="article-bar-meta"></p>
+        <div class="article-bar-end">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ar">عربي</button>
+            <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          </div>
+          <button class="article-x" id="article-close" type="button" data-i18n="article.close">
+            Close
+          </button>
         </div>
-      </article>
+      </header>
+      <div class="article-scroll" id="article-scroll">
+        <figure class="article-hero">
+          <img id="article-image" alt="" />
+          <span class="article-folio" id="article-folio" aria-hidden="true"></span>
+        </figure>
+        <div class="article-well">
+          <p class="article-printed" id="article-printed"></p>
+          <p class="article-kicker" id="article-kicker"></p>
+          <h1 id="article-title"></h1>
+          <p class="article-standfirst" id="article-standfirst"></p>
+          <p class="article-byline" id="article-byline"></p>
+          <div class="article-rule" aria-hidden="true"></div>
+          <div class="article-body" id="article-body"></div>
+          <p class="article-finis" data-i18n="article.finis">Finis</p>
+          <nav class="article-pager" aria-label="Stories">
+            <button type="button" class="article-nav" id="article-prev">
+              <span class="article-nav-dir"></span>
+              <b class="article-nav-title"></b>
+            </button>
+            <button type="button" class="article-nav" id="article-next">
+              <span class="article-nav-dir"></span>
+              <b class="article-nav-title"></b>
+            </button>
+          </nav>
+          <section class="article-more" id="article-more">
+            <h2 data-i18n="article.more">Also in this edition</h2>
+            <div class="article-related" id="article-related"></div>
+          </section>
+        </div>
+      </div>
     </div>
 
     <a class="wa" data-wa href="#" data-i18n-aria="contact.whatsapp" aria-label="WhatsApp">
@@ -276,6 +307,7 @@
     <script src="js/config.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/news.js"></script>
+    <script src="js/articles.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

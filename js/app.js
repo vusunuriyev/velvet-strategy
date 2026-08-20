@@ -3,6 +3,8 @@
   const STORAGE = "northline-lang";
   let activeKind = "";
   let activeOutlet = "";
+  let currentStory = -1;
+  let refreshArticle = () => {};
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -275,6 +277,7 @@
     });
 
     renderHome(dict);
+    refreshArticle();
     const legalKind = document.body.dataset.legal;
     if (legalKind) renderLegal(dict, legalKind);
   }
@@ -372,65 +375,261 @@
 
   function setupNews() {
     const grid = $("#news-grid");
-    const clipping = $("#clipping");
-    const closeBtn = $("#clipping-close");
-    if (!grid || !clipping) return;
+    const article = $("#article");
+    const closeBtn = $("#article-close");
+    const backBtn = $("#article-back");
+    const scrollEl = $("#article-scroll");
+    const progress = $("#article-progress");
+    if (!grid || !article) return;
+
+    let ignoreHash = false;
+    let lastFocus = null;
+    const chrome = [
+      $("#site-header"),
+      $("#main"),
+      document.querySelector(".site-footer"),
+      document.querySelector(".ribbon"),
+      document.querySelector(".skip"),
+      $("#placeholder-banner"),
+    ];
 
     const setOpen = (open) => {
-      clipping.classList.toggle("is-open", open);
-      document.body.classList.toggle("clipping-open", open);
-      clipping.setAttribute("aria-hidden", open ? "false" : "true");
-      clipping.inert = !open;
-      if (open) closeBtn?.focus();
+      const already = article.classList.contains("is-open");
+      article.classList.toggle("is-open", open);
+      document.body.classList.toggle("article-open", open);
+      article.setAttribute("aria-hidden", open ? "false" : "true");
+      article.inert = !open;
+      chrome.forEach((el) => {
+        if (el) el.inert = open;
+      });
+      if (open) {
+        if (scrollEl) scrollEl.scrollTop = 0;
+        updateProgress();
+        if (!already) closeBtn?.focus();
+      } else {
+        currentStory = -1;
+      }
     };
 
-    const openItem = (index) => {
+    function updateProgress() {
+      if (!scrollEl || !progress) return;
+      const max = scrollEl.scrollHeight - scrollEl.clientHeight;
+      const p = max > 0 ? scrollEl.scrollTop / max : 0;
+      progress.style.transform = "scaleX(" + Math.min(1, Math.max(0, p)) + ")";
+    }
+
+    function storyHash(index) {
+      return "#story-" + String(index + 1).padStart(2, "0");
+    }
+
+    function parseStoryHash() {
+      const m = String(location.hash || "").match(/^#story-0*(\d+)$/);
+      if (!m) return -1;
+      return Number(m[1]) - 1;
+    }
+
+    function grafsFor(item, lang) {
+      const pack = window.ARTICLE_GRAFS && window.ARTICLE_GRAFS[item.kind];
+      if (!pack) return [];
+      return pack[lang] || pack.en || [];
+    }
+
+    function navList(index) {
+      const vis = visibleNews().map((entry) => entry.i);
+      if ((activeKind || activeOutlet) && vis.includes(index)) return vis;
+      return (window.NEWS || []).map((_, i) => i);
+    }
+
+    function relatedFor(index) {
+      const items = window.NEWS || [];
+      const current = items[index];
+      if (!current) return [];
+      const others = items.map((item, i) => ({ item, i })).filter((entry) => entry.i !== index);
+      const sameKind = others.filter((entry) => entry.item.kind === current.kind);
+      const sameOutlet = others.filter((entry) => entry.item.outlet === current.outlet);
+      const pool = sameKind.length ? sameKind : sameOutlet.length ? sameOutlet : others;
+      return pool.slice(0, 3);
+    }
+
+    function fillNav(button, label, title, disabled) {
+      if (!button) return;
+      button.disabled = disabled;
+      const dir = button.querySelector(".article-nav-dir");
+      const name = button.querySelector(".article-nav-title");
+      if (dir) dir.textContent = label;
+      if (name) name.textContent = disabled ? "" : title;
+    }
+
+    function fillArticle(index) {
       const item = window.NEWS[index];
       if (!item) return;
       const lang = newsLang();
       const dict = window.I18N[lang] || window.I18N.en;
       const title = item.title[lang] || item.title.en;
       const lede = item.lede[lang] || item.lede.en;
-      const kind = (dict.desk && dict.desk.kind && dict.desk.kind[item.kind]) || item.kind;
+      const kind = kindLabel(dict, item.kind);
       const date = formatNewsDate(item.date, lang);
       const n = String(index + 1).padStart(2, "0");
-      const img = $("#clipping-image");
-      const kicker = $("#clipping-kicker");
-      const heading = $("#clipping-title");
-      const body = $("#clipping-lede");
-      const pull = $("#clipping-pull");
-      const printed = $("#clipping-printed");
-      const folio = $("#clipping-folio");
+      const total = String(window.NEWS.length).padStart(2, "0");
+      const img = $("#article-image");
+      const folio = $("#article-folio");
+      const printed = $("#article-printed");
+      const kicker = $("#article-kicker");
+      const heading = $("#article-title");
+      const standfirst = $("#article-standfirst");
+      const byline = $("#article-byline");
+      const body = $("#article-body");
+      const meta = $("#article-bar-meta");
+      const prev = $("#article-prev");
+      const next = $("#article-next");
+      const related = $("#article-related");
+      const moreWrap = $("#article-more");
+      const list = navList(index);
+      const pos = list.indexOf(index);
+
       if (img) {
         img.src = "assets/news/news-" + item.img + ".jpg";
         img.alt = title;
       }
-      if (printed) printed.textContent = (dict.desk.printed || "As printed in") + " " + item.outlet;
-      if (kicker) kicker.textContent = kind + "  ·  " + date;
-      if (heading) heading.textContent = title;
-      if (pull) {
-        const first = lede.split(/(?<=[.؟!])\s+/)[0] || lede;
-        pull.textContent = first;
-      }
-      if (body) body.textContent = lede;
       if (folio) folio.textContent = n;
+      if (printed) printed.textContent = (dict.desk.printed || "") + " " + item.outlet;
+      if (kicker) kicker.textContent = kind;
+      if (heading) heading.textContent = title;
+      if (standfirst) standfirst.textContent = lede;
+      if (byline) {
+        byline.textContent =
+          date + "  ·  " + (dict.article && dict.article.byline ? dict.article.byline : "");
+      }
+      if (meta) meta.textContent = item.outlet + "  ·  " + n + " / " + total;
+      if (body) {
+        const grafs = grafsFor(item, lang);
+        body.innerHTML = grafs
+          .map((p, i) => `<p${i === 0 ? ' class="is-drop"' : ""}>${esc(p)}</p>`)
+          .join("");
+      }
+      const prevIndex = pos > 0 ? list[pos - 1] : -1;
+      const nextIndex = pos >= 0 && pos < list.length - 1 ? list[pos + 1] : -1;
+      const prevItem = prevIndex >= 0 ? window.NEWS[prevIndex] : null;
+      const nextItem = nextIndex >= 0 ? window.NEWS[nextIndex] : null;
+      fillNav(
+        prev,
+        dict.article ? dict.article.prev : "Previous",
+        prevItem ? prevItem.title[lang] || prevItem.title.en : "",
+        prevIndex < 0
+      );
+      fillNav(
+        next,
+        dict.article ? dict.article.next : "Next",
+        nextItem ? nextItem.title[lang] || nextItem.title.en : "",
+        nextIndex < 0
+      );
+      prev && (prev.dataset.target = String(prevIndex));
+      next && (next.dataset.target = String(nextIndex));
+      if (related) {
+        const more = relatedFor(index);
+        if (moreWrap) moreWrap.hidden = more.length === 0;
+        related.innerHTML = more
+          .map((entry) => {
+            const t = entry.item.title[lang] || entry.item.title.en;
+            const k = kindLabel(dict, entry.item.kind);
+            return `<button type="button" class="article-related-card" data-news-index="${entry.i}">
+  <img src="assets/news/news-${entry.item.img}.jpg" alt="" width="400" height="533" loading="lazy" />
+  <span>${esc(k)} · ${esc(entry.item.outlet)}</span>
+  <b>${esc(t)}</b>
+</button>`;
+          })
+          .join("");
+      }
+    }
+
+    function openItem(index, fromHash) {
+      if (!window.NEWS || !window.NEWS[index]) return;
+      if (!fromHash && !article.classList.contains("is-open")) {
+        lastFocus = document.activeElement;
+      }
+      currentStory = index;
+      fillArticle(index);
       setOpen(true);
+      if (!fromHash && location.hash !== storyHash(index)) {
+        ignoreHash = true;
+        location.hash = storyHash(index);
+        ignoreHash = false;
+      }
+    }
+
+    function closeArticle() {
+      const restore = lastFocus;
+      setOpen(false);
+      lastFocus = null;
+      if (/^#story-/.test(location.hash)) {
+        ignoreHash = true;
+        history.replaceState(null, "", location.pathname + location.search);
+        ignoreHash = false;
+      }
+      if (restore && typeof restore.focus === "function") restore.focus();
+    }
+
+    refreshArticle = () => {
+      if (currentStory >= 0) fillArticle(currentStory);
     };
 
     grid.addEventListener("click", (e) => {
       const card = e.target.closest("[data-news-index]");
       if (!card) return;
-      openItem(Number(card.dataset.newsIndex));
+      openItem(Number(card.dataset.newsIndex), false);
     });
-    closeBtn?.addEventListener("click", () => setOpen(false));
-    clipping.addEventListener("click", (e) => {
-      if (e.target === clipping) setOpen(false);
+    closeBtn?.addEventListener("click", closeArticle);
+    backBtn?.addEventListener("click", closeArticle);
+    $("#article-prev")?.addEventListener("click", () => {
+      const target = Number($("#article-prev")?.dataset.target);
+      if (target >= 0) openItem(target, false);
     });
+    $("#article-next")?.addEventListener("click", () => {
+      const target = Number($("#article-next")?.dataset.target);
+      if (target >= 0) openItem(target, false);
+    });
+    $("#article-related")?.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-news-index]");
+      if (!card) return;
+      openItem(Number(card.dataset.newsIndex), false);
+      if (scrollEl) scrollEl.scrollTop = 0;
+    });
+    scrollEl?.addEventListener("scroll", updateProgress, { passive: true });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && clipping.classList.contains("is-open")) {
-        setOpen(false);
+      if (!article.classList.contains("is-open")) return;
+      if (e.key === "Escape") closeArticle();
+      const rtl = document.documentElement.dir === "rtl";
+      if (e.key === "ArrowLeft") (rtl ? $("#article-next") : $("#article-prev"))?.click();
+      if (e.key === "ArrowRight") (rtl ? $("#article-prev") : $("#article-next"))?.click();
+    });
+    article.addEventListener("keydown", (e) => {
+      if (e.key !== "Tab" || !article.classList.contains("is-open")) return;
+      const nodes = [...article.querySelectorAll("button")].filter((el) => !el.disabled);
+      if (!nodes.length) return;
+      const first = nodes[0];
+      const last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     });
+    window.addEventListener("hashchange", () => {
+      if (ignoreHash) return;
+      const index = parseStoryHash();
+      if (index >= 0) openItem(index, true);
+      else if (article.classList.contains("is-open")) {
+        const restore = lastFocus;
+        setOpen(false);
+        lastFocus = null;
+        if (restore && typeof restore.focus === "function") restore.focus();
+      }
+    });
+
+    const initial = parseStoryHash();
+    if (initial >= 0) openItem(initial, true);
   }
 
   function setupTypes() {
