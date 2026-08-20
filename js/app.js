@@ -396,9 +396,11 @@
     const setOpen = (open) => {
       const already = article.classList.contains("is-open");
       article.classList.toggle("is-open", open);
-      document.body.classList.toggle("article-open", open);
-      article.setAttribute("aria-hidden", open ? "false" : "true");
+      article.hidden = !open;
       article.inert = !open;
+      article.setAttribute("aria-hidden", open ? "false" : "true");
+      article.setAttribute("aria-modal", open ? "true" : "false");
+      document.body.classList.toggle("article-open", open);
       chrome.forEach((el) => {
         if (el) el.inert = open;
       });

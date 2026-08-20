@@ -1084,21 +1084,19 @@ html:has(.site-header.is-compact) .ribbon-all {
   position: fixed;
   inset: 0;
   z-index: var(--z-film);
-  display: flex;
+  display: none;
   flex-direction: column;
   background: #070d18;
-  opacity: 0;
-  visibility: hidden;
   pointer-events: none;
-  transform: translate3d(0, 12px, 0);
-  transition: opacity 0.45s var(--ease), visibility 0.45s, transform 0.5s var(--ease);
 }
 
 .article.is-open {
-  opacity: 1;
-  visibility: visible;
+  display: flex;
   pointer-events: auto;
-  transform: none;
+}
+
+.article[hidden] {
+  display: none !important;
 }
 
 .article-progress {
