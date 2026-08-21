@@ -23,9 +23,9 @@ window.NEWS = [
       ru: "Тихая архитектура имени",
     },
     lede: {
-      en: "A cover built from cloth, type, and patience. The house does not shout; it is simply the object the room is arranged around.",
-      ar: "غلاف صُنع من قماش وحرف وصبر. الدار لا ترفع صوتها؛ هي الشيء الذي تُرتَّب الغرفة من حوله.",
-      ru: "Обложка из ткани, шрифта и терпения. Дом не повышает голос — вокруг него просто выстраивается зал.",
+      en: "A cover built from cloth, type, and patience. The house does not shout; it is simply the object the room is arranged around. What could not survive reprint was taken out before the plate was made, and by the time the issue left the press the headline had already become unnecessary.",
+      ar: "غلاف صُنع من قماش وحرف وصبر. الدار لا ترفع صوتها؛ هي الشيء الذي تُرتَّب الغرفة من حوله. ما لا يصمد أمام إعادة الطبع أُخرج قبل صنع اللوح، وحين غادرت الطبعة المطبعة كان العنوان قد صار زائدًا.",
+      ru: "Обложка из ткани, шрифта и терпения. Дом не повышает голос — вокруг него просто выстраивается зал. Что не выдержало бы перепечатки, убрали до пластины, и к выходу номера заголовок уже был лишним.",
     },
   },
   {
@@ -39,9 +39,9 @@ window.NEWS = [
       ru: "Полночь в зимнем салоне",
     },
     lede: {
-      en: "The season opened not with a speech, but with a gown that held the light. By twelve, the list had become a rumour.",
-      ar: "لم يُفتتح الموسم بخطاب، بل بفستان أمسك بالضوء. وعند منتصف الليل صارت القائمة إشاعة.",
-      ru: "Сезон открылся не речью, а платьем, которое держало свет. К полуночи список стал слухом.",
+      en: "The season opened not with a speech, but with a gown that held the light. No card at the door, no toast that needed a microphone: those who had to know had already taken their seats. By twelve the list had become a rumour, and absence, correctly staged, was treated as a guest.",
+      ar: "لم يُفتتح الموسم بخطاب، بل بفستان أمسك بالضوء. لا بطاقة عند الباب ولا نخب يحتاج ميكروفونًا: من كان عليه أن يعرف كان قد جلس. وعند منتصف الليل صارت القائمة إشاعة، والغياب — إذا أُخرج بإتقان — ضيف.",
+      ru: "Сезон открылся не речью, а платьем, которое держало свет. Ни карточки у двери, ни тоста под микрофон: те, кому следовало знать, уже сидели. К полуночи список стал слухом, а верно поставленное отсутствие — гостем.",
     },
   },
   {
@@ -55,9 +55,9 @@ window.NEWS = [
       ru: "Он входит последним — и зал перестраивается",
     },
     lede: {
-      en: "A portrait of a principal who treats presence as a craft. The chair is never accidental. Neither is the silence that follows.",
-      ar: "بورتريه لرئيس يعامل الحضور كحرفة. الكرسي ليس مصادفة. ولا الصمت الذي يليه.",
-      ru: "Портрет принципала, для которого присутствие — ремесло. Кресло не случайно. И тишина после него — тоже.",
+      en: "A portrait of a principal who treats presence as a craft. He does not fill the frame; he lets the furniture, the window, and the pause do it for him. The chair is never accidental. Neither is the silence that follows, which the desk noted as the most expensive thing in the room.",
+      ar: "بورتريه لرئيس يعامل الحضور كحرفة. لا يملأ الإطار؛ يدع الأثاث والنافذة والوقفة تفعل ذلك. الكرسي ليس مصادفة. ولا الصمت الذي يليه، وهو — كما دوّن المكتب — أغلى ما في الغرفة.",
+      ru: "Портрет принципала, для которого присутствие — ремесло. Он не заполняет кадр: за него это делают мебель, окно и пауза. Кресло не случайно. И тишина после него, как отметила редакция, оказалась самым дорогим в комнате.",
     },
   },
   {
@@ -71,9 +71,9 @@ window.NEWS = [
       ru: "О дисциплине быть на виду",
     },
     lede: {
-      en: "She speaks as if the microphone were a guest. Every sentence is cut before it leaves the table. The rest is withheld, on purpose.",
-      ar: "تتكلم كأن الميكروفون ضيف. كل جملة تُقصّ قبل أن تغادر المائدة. والباقي يُحبَس عمدًا.",
-      ru: "Она говорит так, будто микрофон — гость. Каждая фраза обрезана до того, как покинет стол. Остальное удержано нарочно.",
+      en: "She speaks as if the microphone were a guest with its coat still on: welcome, not intimate. Every sentence is cut before it leaves the table. Questions that asked for a slogan were returned, politely, unanswered, and the transcript arrived shorter than the hour.",
+      ar: "تتكلم كأن الميكروفون ضيف ما زال بمعطفه: مرحبًا به، غير حميم. كل جملة تُقصّ قبل أن تغادر المائدة. الأسئلة التي طلبت شعارًا أُعيدت بأدب بلا جواب، وجاء النص أقصر من الساعة.",
+      ru: "Она говорит так, будто микрофон — гость в пальто: принят, но не близко. Каждая фраза обрезана до того, как покинет стол. Вопросы, которые просили слоган, вежливо вернули без ответа, а расшифровка пришла короче часа.",
     },
   },
   {
@@ -87,9 +87,9 @@ window.NEWS = [
       ru: "Город, который предпочитает шёпот",
     },
     lede: {
-      en: "After midnight the towers keep their own counsel. The story, as ever, is not the skyline — it is who is still awake inside it.",
-      ar: "بعد منتصف الليل تحتفظ الأبراج برأيها. القصة، كما دائمًا، ليست الأفق — بل من لا يزال مستيقظًا داخله.",
-      ru: "После полуночи башни держат совет сами с собой. История, как всегда, не в силуэте — а в том, кто ещё не спит внутри.",
+      en: "After midnight the towers keep their own counsel. The story, as ever, is not the skyline — it is who is still awake inside it. Capital, in this telling, is a light left on in a private floor, not a performance for the river, and the dawn papers arrived still warm.",
+      ar: "بعد منتصف الليل تحتفظ الأبراج برأيها. القصة، كما دائمًا، ليست الأفق — بل من لا يزال مستيقظًا داخله. رأس المال هنا ضوء متروك في طابق خاص، لا عرضًا للنهر، وصحف الفجر وصلت دافئة.",
+      ru: "После полуночи башни держат совет сами. История, как всегда, не в силуэте — а в том, кто ещё не спит внутри. Капитал здесь — свет на частном этаже, а не спектакль для реки, и утренние газеты пришли ещё тёплыми.",
     },
   },
   {
@@ -103,9 +103,9 @@ window.NEWS = [
       ru: "Письма с восточной террасы",
     },
     lede: {
-      en: "Ink, blotter, and a sentence that will outlive the week. Correspondence remains the most expensive luxury: a thought that cannot be edited in public.",
-      ar: "حبر ونشاف وجملة تعيش أطول من الأسبوع. المراسلة ما زالت أغلى ترف: فكرة لا تُحرَّر أمام الجمهور.",
-      ru: "Чернила, промокашка и фраза, которая переживёт неделю. Переписка — всё ещё самая дорогая роскошь: мысль, которую не правят при всех.",
+      en: "Ink, blotter, and a sentence that will outlive the week. Correspondence remains the most expensive luxury: a thought that cannot be edited in public. Handwritten notes still move ministries; the photograph is of the instrument, the news is of the recipient, and the letter was meant to be read once.",
+      ar: "حبر ونشاف وجملة تعيش أطول من الأسبوع. المراسلة ما زالت أغلى ترف: فكرة لا تُحرَّر أمام الجمهور. الملاحظات بخط اليد ما زالت تحرّك الوزارات؛ الصورة للأداة والخبر لمن استلمها، والرسالة كُتبت لتُقرأ مرة.",
+      ru: "Чернила, промокашка и фраза, которая переживёт неделю. Переписка — всё ещё самая дорогая роскошь: мысль, которую не правят при всех. Рукописные записки двигают министерства; на снимке инструмент, новость — в адресате, а письмо должно быть прочитано один раз.",
     },
   },
   {
@@ -119,9 +119,9 @@ window.NEWS = [
       ru: "Длинный коридор и то, что он впускает",
     },
     lede: {
-      en: "Brass, marble, and a carpet that swallows footsteps. Houses of this kind do not display power. They delay it, beautifully, until the door.",
-      ar: "نحاس ورخام وبساط يبتلع الخطوات. البيوت من هذا النوع لا تعرض القوة. تؤجّلها بجمال حتى الباب.",
-      ru: "Латунь, мрамор и ковёр, глотающий шаги. Такие дома не выставляют власть. Они красиво откладывают её — до самой двери.",
+      en: "Brass, marble, and a carpet that swallows footsteps. Houses of this kind do not display power. They delay it, beautifully, until the door. Nothing was unveiled: the object was simply allowed into the room, and by evening the name had travelled without a slogan.",
+      ar: "نحاس ورخام وبساط يبتلع الخطوات. البيوت من هذا النوع لا تعرض القوة. تؤجّلها بجمال حتى الباب. لم يُكشف عن شيء: سُمح للشيء بدخول الغرفة، ومع المساء سافر الاسم بلا شعار.",
+      ru: "Латунь, мрамор и ковёр, глотающий шаги. Такие дома не выставляют власть. Они красиво откладывают её — до самой двери. Ничего не презентировали: предмет впустили в зал, и к вечеру имя ушло без слогана.",
     },
   },
   {
@@ -135,9 +135,9 @@ window.NEWS = [
       ru: "Ужин, которому не нужен был список",
     },
     lede: {
-      en: "Candlelight, crystal, and three empty seats left on purpose. The evening was complete before anyone sat down.",
-      ar: "ضوء شموع وكريستال وثلاثة مقاعد فارغة تُركت عمدًا. اكتملت الأمسية قبل أن يجلس أحد.",
-      ru: "Свечи, хрусталь и три пустых места, оставленных нарочно. Вечер был завершён ещё до того, как кто-то сел.",
+      en: "Candlelight, crystal, and three empty seats left on purpose. The evening was complete before anyone sat down. The campaign was not a burst but a season: the same sentence, held, until the market could say it without being told, and nothing felt finished — only correctly placed.",
+      ar: "ضوء شموع وكريستال وثلاثة مقاعد فارغة تُركت عمدًا. اكتملت الأمسية قبل أن يجلس أحد. لم تكن الحملة دفعة بل موسمًا: الجملة نفسها ممسوكة حتى يقولها السوق من دون أن يُلقَّن، ولم يبدُ شيء مكتملًا — بل موضوعًا في موضعه.",
+      ru: "Свечи, хрусталь и три пустых места, оставленных нарочно. Вечер был завершён ещё до того, как кто-то сел. Кампания была не вспышкой, а сезоном: одна фраза, пока рынок не стал говорить её сам, и ничего не казалось завершённым — только верно поставленным.",
     },
   },
   {
@@ -151,9 +151,9 @@ window.NEWS = [
       ru: "Утренние газеты, ещё тёплые",
     },
     lede: {
-      en: "The first edition arrives before the city admits it is morning. Whoever placed the story had already left the building.",
-      ar: "تصل الطبعة الأولى قبل أن تعترف المدينة بالصباح. من وضع الخبر كان قد غادر المبنى.",
-      ru: "Первый выпуск приходит раньше, чем город признаёт утро. Тот, кто поставил материал, уже покинул здание.",
+      en: "The first edition arrives before the city admits it is morning. Whoever placed the story had already left the building. Numbers would follow; the sentence had already chosen its tense. By the time the first coffee was poured, the copy had taken its final shape and could not be unwritten.",
+      ar: "تصل الطبعة الأولى قبل أن تعترف المدينة بالصباح. من وضع الخبر كان قد غادر المبنى. الأرقام ستأتي؛ والجملة كانت قد اختارت زمنها. وحين صُبّت أول قهوة كان النص قد اتخذ شكله الأخير ولم يعد ممكنًا محوه.",
+      ru: "Первый выпуск приходит раньше, чем город признаёт утро. Тот, кто поставил материал, уже покинул здание. Цифры подтянутся; предложение уже выбрало время. К первому кофе текст принял окончательную форму и его уже нельзя было отменить.",
     },
   },
   {
@@ -167,9 +167,9 @@ window.NEWS = [
       ru: "Бархат, золотой шнур, без логотипа",
     },
     lede: {
-      en: "A curtain photographed as if it were a face. The house understands that luxury, at its highest, is withholding.",
-      ar: "ستار صُوِّر كأنه وجه. تفهم الدار أن الفخامة في ذروتها هي الإمساك.",
-      ru: "Занавес, снятый так, будто это лицо. Дом понимает: высшая роскошь — в умении не показывать.",
+      en: "A curtain photographed as if it were a face. The house understands that luxury, at its highest, is withholding. Applause would have been too cheap a close; the room adjusted instead. Cameras left on time, and the last hour belonged to those who had never needed to be announced.",
+      ar: "ستار صُوِّر كأنه وجه. تفهم الدار أن الفخامة في ذروتها هي الإمساك. التصفيق كان ليكون ختامًا رخيصًا؛ عدّلت الغرفة وضعها بدلًا منه. غادرت الكاميرات في وقتها، وكانت الساعة الأخيرة لمن لم يحتج إلى إعلان.",
+      ru: "Занавес, снятый так, будто это лицо. Дом понимает: высшая роскошь — в умении не показывать. Аплодисменты были бы слишком дешёвым финалом; зал перестроился. Камеры ушли вовремя, и последний час принадлежал тем, кого никогда не объявляли.",
     },
   },
   {
@@ -183,9 +183,9 @@ window.NEWS = [
       ru: "Платье, которым закрыли сезон",
     },
     lede: {
-      en: "One silhouette, held in a pool of light. By morning the photograph had already become the memory of the night.",
-      ar: "ظل واحد، ممسوك في بركة ضوء. وفي الصباح كان للصورة أن تكون ذكرى الليل.",
-      ru: "Один силуэт в луже света. К утру снимок уже стал памятью о ночи.",
+      en: "One silhouette, held in a pool of light. By morning the photograph had already become the memory of the night. A cover of this kind does not argue. It occupies. The room learns the name by looking, then looking away, then looking again, until the object has done the work.",
+      ar: "ظل واحد، ممسوك في بركة ضوء. وفي الصباح كان للصورة أن تكون ذكرى الليل. غلاف من هذا النوع لا يجادل. يحتل. تتعلم الغرفة الاسم بالنظر ثم بالإعراض ثم بالنظر مرة أخرى، حتى يقوم الشيء بالعمل.",
+      ru: "Один силуэт в луже света. К утру снимок уже стал памятью о ночи. Такая обложка не спорит. Она занимает место. Зал учит имя, глядя, отводя взгляд и глядя снова, пока предмет не сделает работу.",
     },
   },
   {
@@ -199,9 +199,9 @@ window.NEWS = [
       ru: "То, чего он не говорит в кадр",
     },
     lede: {
-      en: "The useful answers live in the pause. A long conversation, edited down to the sentences that can survive reprint.",
-      ar: "الإجابات النافعة تسكن في الوقفة. حديث طويل اختُصر إلى الجمل التي تصمد أمام إعادة الطبع.",
-      ru: "Нужные ответы живут в паузе. Длинный разговор, сжатый до фраз, которые выдержат перепечатку.",
+      en: "The useful answers live in the pause. A long conversation, edited down to the sentences that can survive reprint. He treated the recorder as furniture: present, not intimate. What could not be said in public was not hinted at either; it was simply left off the page.",
+      ar: "الإجابات النافعة تسكن في الوقفة. حديث طويل اختُصر إلى الجمل التي تصمد أمام إعادة الطبع. عامل المسجّل كأثاث: حاضر، غير حميم. ما لا يُقال أمام الجمهور لم يُلمَّح إليه أيضًا؛ تُرك خارج الصفحة.",
+      ru: "Нужные ответы живут в паузе. Длинный разговор, сжатый до фраз, которые выдержат перепечатку. Диктофон он держал как мебель: присутствует, но не близко. Что нельзя сказать при всех, не намекали — просто оставили за страницей.",
     },
   },
   {
@@ -215,9 +215,9 @@ window.NEWS = [
       ru: "Первый ряд, второй язык",
     },
     lede: {
-      en: "The collection was shown once. The room understood it twice — in English, then in the language the hosts actually speak.",
-      ar: "عُرضت المجموعة مرة. وفهمتها الغرفة مرتين — بالإنجليزية، ثم باللغة التي يتكلمها المضيفون فعلًا.",
-      ru: "Коллекцию показали один раз. Зал понял её дважды — по-английски, затем на языке, на котором хозяева говорят на самом деле.",
+      en: "The collection was shown once. The room understood it twice — in English, then in the language the hosts actually speak. Sequence did the rest: who enters, who is lit, who is left unnamed until the second edition. Fashion, here, is a form of protocol, and protocol is a form of care.",
+      ar: "عُرضت المجموعة مرة. وفهمتها الغرفة مرتين — بالإنجليزية، ثم باللغة التي يتكلمها المضيفون فعلًا. قام التسلسل بالباقي: من يدخل، من يُضاء، من يُترك بلا اسم حتى الطبعة الثانية. الأزياء هنا شكل من البروتوكول، والبروتوكول شكل من العناية.",
+      ru: "Коллекцию показали один раз. Зал понял её дважды — по-английски, затем на языке хозяев. Остальное сделала последовательность: кто входит, кого освещают, кого не называют до второго выпуска. Мода здесь — форма протокола, а протокол — форма заботы.",
     },
   },
   {
@@ -231,9 +231,9 @@ window.NEWS = [
       ru: "Коллекция, которую никто не каталогизирует",
     },
     lede: {
-      en: "Bound volumes, no bookplate. The owner reads them; the public is permitted only the cover.",
-      ar: "مجلدات مجلدة بلا ختم ملكية. يقرأها صاحبها؛ ويُسمح للجمهور بالغلاف فقط.",
-      ru: "Переплёты без экслибриса. Их читает хозяин; публике дозволена только обложка.",
+      en: "Bound volumes, no bookplate. The owner reads them; the public is permitted only the cover. Those who expected charm were given proportion, which lasts longer and photographs better in winter light. When the sitting ended, nothing had been confessed, and that was the point.",
+      ar: "مجلدات مجلدة بلا ختم ملكية. يقرأها صاحبها؛ ويُسمح للجمهور بالغلاف فقط. من انتظر فتنة أُعطي تناسبًا، وهو أطول عمرًا ويُصوَّر أجمل في ضوء الشتاء. حين انتهى الجلوس لم يُعترف بشيء، وذاك كان المقصود.",
+      ru: "Переплёты без экслибриса. Их читает хозяин; публике дозволена только обложка. Тем, кто ждал обаяния, дали пропорцию — она живёт дольше и лучше ложится на зимний свет. Когда съёмка кончилась, ничего не было сказано, и в этом был смысл.",
     },
   },
   {
@@ -247,9 +247,9 @@ window.NEWS = [
       ru: "Рынки открылись — история уже написана",
     },
     lede: {
-      en: "A morning note that arrived before the bell. The numbers would follow. The sentence had already chosen its tense.",
-      ar: "ملاحظة صباحية وصلت قبل الجرس. الأرقام ستأتي لاحقًا. والجملة كانت قد اختارت زمنها.",
-      ru: "Утренняя записка пришла раньше колокола. Цифры подтянутся. Предложение уже выбрало своё время.",
+      en: "A morning note that arrived before the bell. The numbers would follow. The sentence had already chosen its tense. Paper, coffee, dawn: the copy was filed at a quarter to six, and by the time the city woke the story had taken its final shape — the difference, the desk said, between a leak and a briefing.",
+      ar: "ملاحظة صباحية وصلت قبل الجرس. الأرقام ستأتي لاحقًا. والجملة كانت قد اختارت زمنها. ورق وقهوة وفجر: أُرسل النص قبل السادسة بقليل، وحين استيقظت المدينة كانت القصة قد اتخذت شكلها الأخير — الفرق، كما قال المكتب، بين تسرّب وإحاطة.",
+      ru: "Утренняя записка пришла раньше колокола. Цифры подтянутся. Предложение уже выбрало своё время. Бумага, кофе, рассвет: текст сдали без четверти шесть, и к пробуждению города история приняла окончательную форму — разница, сказала редакция, между утечкой и брифингом.",
     },
-  }
+  },
 ];

@@ -220,10 +220,7 @@
         const src = "assets/news/news-" + item.img + ".jpg";
         const lazy = pos < 4 ? "eager" : "lazy";
         const role = layoutRole(pos);
-        const deck =
-          role === "lead" || role === "banner"
-            ? `<span class="news-deck">${esc(lede)}</span>`
-            : "";
+        const deck = `<span class="news-deck">${esc(lede)}</span>`;
         return `<button type="button" class="news-card is-${role}" data-news-index="${i}" data-kind="${item.kind}" style="--i:${pos}" aria-haspopup="dialog">
   <span class="news-frame">
     <img src="${src}" alt="" width="900" height="1200" loading="${lazy}" decoding="async" />
