@@ -1,5 +1,85 @@
 /* Velvet Strategy — quiet luxury */
 
+@font-face {
+  font-family: "Kudry";
+  src: url("../assets/fonts/Kudry-WeirdHeadline.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kudry";
+  src: url("../assets/fonts/Kudry-WeirdHeadline.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kudry";
+  src: url("../assets/fonts/Kudry-WeirdHeadline.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kudry";
+  src: url("../assets/fonts/Kudry-WeirdHeadline.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Kudry";
+  src: url("../assets/fonts/Kudry-WeirdHeadline.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antipasto Pro";
+  src: url("../assets/fonts/AntipastoPro-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antipasto Pro";
+  src: url("../assets/fonts/AntipastoPro-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antipasto Pro";
+  src: url("../assets/fonts/AntipastoPro-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antipasto Pro";
+  src: url("../assets/fonts/AntipastoPro-Bold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Antipasto Pro";
+  src: url("../assets/fonts/AntipastoPro-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --navy: #081830;
   --navy-2: #0c2040;
@@ -19,9 +99,9 @@
   --header-h: 4.75rem;
   --pad: clamp(1.25rem, 4.2vw, 3.5rem);
   --max: 72rem;
-  --serif: "Bodoni Moda", "Didot", "Bodoni MT", serif;
-  --sans: "Manrope", "Segoe UI", sans-serif;
-  --gothic: "Bodoni Moda", "Didot", "Bodoni MT", serif;
+  --serif: "Kudry", "Bodoni Moda", "Didot", "Bodoni MT", serif;
+  --sans: "Antipasto Pro", "Manrope", "Segoe UI", sans-serif;
+  --gothic: "Antipasto Pro", "Manrope", "Segoe UI", sans-serif;
   --script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   --ar-serif: "Amiri", "Noto Naskh Arabic", serif;
   --ar-sans: "Noto Naskh Arabic", "Amiri", serif;
@@ -51,7 +131,7 @@ html[lang="ar"] {
 
 body {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--cream);
