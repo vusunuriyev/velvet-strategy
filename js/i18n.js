@@ -42,8 +42,8 @@ window.I18N = {
     desk: {
       eyebrow: "Press",
       volume: "Vol. I",
-      folio: "01–30",
-      title: "Thirty dispatches.",
+      folio: "01–15",
+      title: "Fifteen dispatches.",
       body: "Covers, portraits, and evenings from the rooms that still matter.",
       colophon:
         "A private press desk in Baku, working in English, Arabic and Russian.",
@@ -207,8 +207,8 @@ window.I18N = {
     desk: {
       eyebrow: "الصحافة",
       volume: "المجلد الأول",
-      folio: "٠١–٣٠",
-      title: "ثلاثون بلاغًا.",
+      folio: "٠١–١٥",
+      title: "خمسة عشر بلاغًا.",
       body: "أغلفة وبورتريهات وأمسيات من الغرف التي لا تزال تهمّ.",
       colophon: "مكتب صحافة خاص في باكو، يعمل بالإنجليزية والعربية والروسية.",
       close: "أغلق القصاصة",
@@ -367,8 +367,8 @@ window.I18N = {
     desk: {
       eyebrow: "Пресса",
       volume: "Том I",
-      folio: "01–30",
-      title: "Тридцать депеш.",
+      folio: "01–15",
+      title: "Пятнадцать депеш.",
       body: "Обложки, портреты и вечера из комнат, которые всё ещё имеют значение.",
       colophon: "Частная пресс-редакция в Баку. Английский, арабский, русский.",
       close: "Закрыть вырезку",

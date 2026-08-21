@@ -7,16 +7,22 @@
   --gold: #c6b08a;
   --gold-2: #e4d3b2;
   --gold-dim: rgba(198, 176, 138, 0.28);
+  --gold-deep: #8a7349;
   --cream: #f1eadc;
   --mist: rgba(241, 234, 220, 0.72);
   --mute: rgba(241, 234, 220, 0.52);
+  --beige: #e3e1db;
+  --ink-mist: rgba(8, 24, 48, 0.7);
+  --ink-mute: rgba(8, 24, 48, 0.46);
+  --ink-line: rgba(8, 24, 48, 0.16);
   --line: rgba(198, 176, 138, 0.22);
   --header-h: 4.75rem;
   --pad: clamp(1.25rem, 4.2vw, 3.5rem);
   --max: 72rem;
-  --serif: "EB Garamond", "Iowan Old Style", serif;
+  --serif: "Bodoni Moda", "Didot", "Bodoni MT", serif;
   --sans: "Manrope", "Segoe UI", sans-serif;
-  --gothic: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --gothic: "Bodoni Moda", "Didot", "Bodoni MT", serif;
+  --script: "Pinyon Script", "Snell Roundhand", "Apple Chancery", cursive;
   --ar-serif: "Amiri", "Noto Naskh Arabic", serif;
   --ar-sans: "Noto Naskh Arabic", "Amiri", serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -40,15 +46,18 @@ html[lang="ar"] {
   --serif: var(--ar-serif);
   --sans: var(--ar-sans);
   --gothic: var(--ar-serif);
+  --script: var(--ar-serif);
 }
 
 body {
   margin: 0;
-  font-family: var(--sans);
-  font-size: 1.02rem;
-  line-height: 1.7;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
   color: var(--cream);
   background: var(--navy);
+  font-optical-sizing: auto;
+  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -78,6 +87,11 @@ button,
 input,
 textarea {
   font: inherit;
+}
+
+input,
+textarea {
+  font-family: var(--sans);
 }
 
 :focus-visible {
@@ -309,8 +323,8 @@ html[dir="rtl"] .desk-nav {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 7vw, 3.2rem);
   font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  letter-spacing: 0.03em;
+  line-height: 1.18;
 }
 
 .menu-link span {
@@ -407,16 +421,25 @@ body.menu-open {
   margin: 0;
   color: var(--gold);
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(2.35rem, 7.4vw, 4.6rem);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
 }
 
 .hero-title em {
   display: block;
+  font-family: var(--script);
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-top: 0.12em;
+}
+
+html[lang="ar"] .hero-title em {
+  font-family: var(--ar-serif);
   font-style: italic;
-  font-weight: 500;
 }
 
 .hero-body {
@@ -637,10 +660,10 @@ html[dir="rtl"] .btn-ghost .arrow::after {
 .intro-lead {
   margin: 0 0 1rem;
   font-family: var(--serif);
-  font-weight: 600;
+  font-weight: 500;
   font-size: clamp(1.75rem, 4.4vw, 2.85rem);
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.18;
+  letter-spacing: 0.02em;
   color: var(--gold-2);
   text-wrap: balance;
 }
@@ -656,10 +679,10 @@ html[dir="rtl"] .btn-ghost .arrow::after {
   position: sticky;
   top: var(--header-h);
   z-index: 45;
-  background: rgba(8, 24, 48, 0.94);
+  background: rgba(227, 225, 219, 0.96);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  border-top: 2px solid var(--gold);
+  border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--gold);
   transition: top 0.35s var(--ease);
 }
@@ -668,30 +691,30 @@ html[dir="rtl"] .btn-ghost .arrow::after {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: stretch;
-  min-height: 3.6rem;
+  min-height: 2.55rem;
 }
 
 .ribbon-all {
   appearance: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
   margin: 0;
-  padding: 0 1.1rem 0 var(--pad);
+  padding: 0 0.85rem 0 var(--pad);
   border: 0;
-  border-inline-end: 1px solid var(--line);
+  border-inline-end: 1px solid var(--ink-line);
   background: transparent;
-  color: var(--gold);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  color: var(--gold-deep);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
-  min-height: 52px;
+  min-height: 44px;
 }
 
 .ribbon-all.is-on {
-  color: var(--gold-2);
+  color: var(--navy);
 }
 
 .ribbon-track {
@@ -723,34 +746,34 @@ html[dir="rtl"] .ribbon-track {
   appearance: none;
   background: none;
   border: 0;
-  color: var(--cream);
+  color: var(--navy);
   font-family: var(--gothic);
-  font-size: clamp(1.55rem, 3.6vw, 2.2rem);
+  font-size: clamp(0.88rem, 1.9vw, 1.12rem);
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
-  min-height: 52px;
-  padding: 0 0.15rem;
+  min-height: 44px;
+  padding: 0 0.1rem;
   cursor: pointer;
   transition: color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
 .ribbon-item:hover {
-  color: var(--gold-2);
+  color: var(--gold-deep);
 }
 
 .ribbon-item.is-on {
-  color: var(--gold);
-  transform: translateY(-1px);
+  color: var(--gold-deep);
+  transform: none;
 }
 
 .ribbon-sep {
-  padding: 0 1.15rem;
-  color: var(--gold);
-  opacity: 0.45;
+  padding: 0 0.75rem;
+  color: var(--gold-deep);
+  opacity: 0.55;
   font-family: var(--serif);
-  font-size: 1.1rem;
+  font-size: 0.85rem;
 }
 
 @keyframes marquee {
@@ -806,9 +829,10 @@ html[dir="rtl"] .ribbon-run {
   transform: rotate(45deg);
 }
 
-/* Desk — thirty dispatches */
+/* Desk — fifteen dispatches */
 .desk {
-  background: var(--navy);
+  background: var(--beige);
+  color: var(--navy);
   padding-top: 4.8rem;
   padding-bottom: 5.5rem;
 }
@@ -839,7 +863,7 @@ html[dir="rtl"] .ribbon-run {
   font-size: 0.65rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .desk-title {
@@ -847,16 +871,16 @@ html[dir="rtl"] .ribbon-run {
   font-family: var(--serif);
   font-weight: 500;
   font-size: clamp(2.6rem, 8vw, 5.6rem);
-  line-height: 0.92;
-  letter-spacing: -0.045em;
-  color: var(--gold-2);
+  line-height: 0.98;
+  letter-spacing: 0.02em;
+  color: var(--navy);
   text-wrap: balance;
 }
 
 .desk-lead {
   margin: 0;
   max-width: 36rem;
-  color: var(--mist);
+  color: var(--ink-mist);
   font-size: 1.02rem;
 }
 
@@ -868,18 +892,18 @@ html[dir="rtl"] .ribbon-run {
 }
 
 html:has(.site-header.is-compact) .ribbon-shell {
-  min-height: 3rem;
+  min-height: 2.35rem;
 }
 
 html:has(.site-header.is-compact) .ribbon-item,
 html:has(.site-header.is-compact) .ribbon-all {
-  min-height: 44px;
+  min-height: 40px;
 }
 
 .desk-colophon {
   margin: 0.85rem 0 0;
   max-width: 34rem;
-  color: var(--gold);
+  color: var(--gold-deep);
   font-family: var(--serif);
   font-style: italic;
   font-size: 1.05rem;
@@ -898,8 +922,8 @@ html:has(.site-header.is-compact) .ribbon-all {
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-flow: dense;
-  border-top: 1px solid var(--line);
-  border-inline-start: 1px solid var(--line);
+  border-top: 1px solid var(--ink-line);
+  border-inline-start: 1px solid var(--ink-line);
 }
 
 .news-card {
@@ -912,8 +936,8 @@ html:has(.site-header.is-compact) .ribbon-all {
   margin: 0;
   padding: 0.95rem 0.95rem 1.2rem;
   border: 0;
-  border-inline-end: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-inline-end: 1px solid var(--ink-line);
+  border-bottom: 1px solid var(--ink-line);
   background: transparent;
   color: inherit;
   text-align: start;
@@ -937,7 +961,7 @@ html:has(.site-header.is-compact) .ribbon-all {
 
 .news-card:hover,
 .news-card:focus-visible {
-  background: rgba(198, 176, 138, 0.045);
+  background: rgba(8, 24, 48, 0.04);
 }
 
 .news-copy {
@@ -951,7 +975,7 @@ html:has(.site-header.is-compact) .ribbon-all {
   display: block;
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink-line);
 }
 
 .news-card.is-banner .news-frame,
@@ -993,7 +1017,7 @@ html:has(.site-header.is-compact) .ribbon-all {
   font-size: clamp(2.4rem, 5vw, 3.4rem);
   font-weight: 500;
   line-height: 0.8;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.02em;
   color: var(--gold-2);
   text-shadow: 0 8px 28px rgba(8, 24, 48, 0.55);
   pointer-events: none;
@@ -1008,11 +1032,11 @@ html:has(.site-header.is-compact) .ribbon-all {
   font-size: 0.62rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
 }
 
 .news-meta time {
-  color: var(--mute);
+  color: var(--ink-mute);
   letter-spacing: 0.12em;
   text-transform: none;
   font-size: 0.72rem;
@@ -1024,7 +1048,7 @@ html:has(.site-header.is-compact) .ribbon-all {
   font-size: 0.82rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--mute);
+  color: var(--ink-mute);
 }
 
 .news-headline {
@@ -1032,17 +1056,15 @@ html:has(.site-header.is-compact) .ribbon-all {
   font-family: var(--serif);
   font-size: clamp(1.22rem, 2.2vw, 1.55rem);
   font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.025em;
-  color: var(--cream);
+  line-height: 1.22;
+  color: var(--navy);
   text-wrap: balance;
 }
 
 .news-card.is-lead .news-headline {
   font-size: clamp(1.85rem, 4vw, 3.15rem);
   font-style: normal;
-  color: var(--gold-2);
-  letter-spacing: -0.04em;
+  color: var(--navy);
 }
 
 .news-card.is-banner .news-headline {
@@ -1051,7 +1073,7 @@ html:has(.site-header.is-compact) .ribbon-all {
 
 .news-deck {
   margin: 0.7rem 0 0;
-  color: var(--mist);
+  color: var(--ink-mist);
   font-size: 0.98rem;
   line-height: 1.55;
   display: -webkit-box;
@@ -1062,7 +1084,7 @@ html:has(.site-header.is-compact) .ribbon-all {
 
 .news-card:nth-child(3n) .news-headline {
   font-style: italic;
-  color: var(--gold-2);
+  color: var(--navy);
 }
 
 .news-card.is-lead:nth-child(3n) .news-headline {
@@ -1072,9 +1094,7 @@ html:has(.site-header.is-compact) .ribbon-all {
 .news-empty {
   grid-column: 1 / -1;
   margin: 0;
-  padding: 3rem 1rem;
-  text-align: center;
-  color: var(--mute);
+  color: var(--ink-mute);
   font-family: var(--serif);
   font-style: italic;
 }
@@ -1273,8 +1293,8 @@ html[dir="rtl"] .article-back::before {
   font-family: var(--serif);
   font-weight: 500;
   font-size: clamp(2.1rem, 5.4vw, 3.6rem);
-  line-height: 1.08;
-  letter-spacing: -0.04em;
+  line-height: 1.12;
+  letter-spacing: 0.02em;
   color: var(--gold-2);
   text-wrap: balance;
 }
@@ -1327,9 +1347,16 @@ html[dir="rtl"] .article-body p.is-drop::first-letter {
 .article-finis {
   margin: 2.4rem 0 0;
   text-align: center;
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: var(--script);
+  font-style: normal;
+  font-size: 1.55rem;
   color: var(--gold);
+}
+
+html[lang="ar"] .article-finis {
+  font-family: var(--ar-serif);
+  font-style: italic;
+  font-size: 1.15rem;
 }
 
 .article-finis::before,
@@ -1779,7 +1806,7 @@ html[lang="ar"] .ribbon-item {
   font-family: var(--ar-serif);
   letter-spacing: 0;
   text-transform: none;
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-size: clamp(1.02rem, 2.2vw, 1.28rem);
 }
 
 html[lang="ar"] .ribbon-all,
@@ -1833,19 +1860,19 @@ html[lang="ar"] .article-body p.is-drop::first-letter {
 }
 
 html[lang="ru"] .desk-title {
-  letter-spacing: -0.055em;
+  letter-spacing: 0.01em;
 }
 
 html[lang="ru"] .ribbon-item {
-  letter-spacing: 0.04em;
+  letter-spacing: 0.1em;
 }
 
 html[lang="ru"] .hero-title em {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 html[lang="ru"] .article-well h1 {
-  letter-spacing: -0.05em;
+  letter-spacing: 0.01em;
 }
 
 .footer-colophon {
