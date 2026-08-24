@@ -5,6 +5,7 @@
   let activeOutlet = "";
   let currentStory = -1;
   let refreshArticle = () => {};
+  let revealApi = { refresh() {} };
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -205,6 +206,7 @@
 
     if (!list.length) {
       grid.innerHTML = `<p class="news-empty">${esc(dict.desk.empty || "")}</p>`;
+      revealApi.refresh();
       return;
     }
 
@@ -238,6 +240,7 @@
 </button>`;
       })
       .join("");
+    revealApi.refresh();
   }
 
   function renderLegal(dict, kind) {
@@ -687,6 +690,95 @@
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
   }
+
+  function prefersReduce() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }
+
+  function setupCurtain() {
+    const root = document.documentElement;
+    const curtain = $("#curtain");
+    if (!curtain) {
+      root.classList.add("is-ready");
+      return;
+    }
+
+    const deep = /^#story-/.test(location.hash);
+    let seen = false;
+    try {
+      seen = sessionStorage.getItem("velvet-curtain") === "1";
+    } catch (err) {}
+
+    if (prefersReduce() || seen || deep || root.classList.contains("curtain-skip")) {
+      root.classList.add("curtain-skip", "is-ready");
+      curtain.remove();
+      return;
+    }
+
+    let closed = false;
+    const onKey = (e) => {
+      if (e.key === "Escape") finish();
+    };
+    const finish = () => {
+      if (closed) return;
+      closed = true;
+      document.removeEventListener("keydown", onKey);
+      root.classList.add("is-ready");
+      curtain.classList.add("is-out");
+      try {
+        sessionStorage.setItem("velvet-curtain", "1");
+      } catch (err) {}
+      const tidy = () => curtain.remove();
+      curtain.addEventListener("transitionend", tidy, { once: true });
+      window.setTimeout(tidy, 1100);
+    };
+
+    $("#curtain-skip")?.addEventListener("click", finish);
+    document.addEventListener("keydown", onKey);
+    window.setTimeout(finish, 2800);
+  }
+
+  function setupReveal() {
+    if (prefersReduce()) {
+      const show = () => {
+        $$(".reveal, .news-card").forEach((el) => el.classList.add("is-in"));
+      };
+      show();
+      return { refresh: show };
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    const watch = () => {
+      $$(".reveal, .news-card").forEach((el) => {
+        if (!el.classList.contains("is-in")) io.observe(el);
+      });
+    };
+    watch();
+    return { refresh: watch };
+  }
+
+  function setupReadLine() {
+    const bar = $("#read-line");
+    if (!bar) return;
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+      bar.style.transform = "scaleX(" + p + ")";
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
   function setupLangButtons() {
     $$(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => applyLang(btn.dataset.lang));
@@ -703,4 +795,7 @@
   setupPress();
   setupHeader();
   setupLangButtons();
+  setupCurtain();
+  revealApi = setupReveal();
+  setupReadLine();
 })();

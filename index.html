@@ -16,10 +16,40 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      (function () {
+        try {
+          var skip =
+            sessionStorage.getItem("velvet-curtain") === "1" ||
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+            /^#story-/.test(location.hash);
+          if (skip) document.documentElement.classList.add("curtain-skip");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
     <div id="placeholder-banner" class="banner" data-i18n="banner"></div>
+
+    <div class="curtain" id="curtain">
+      <button type="button" class="curtain-skip" id="curtain-skip" data-i18n="curtain.skip">
+        Skip
+      </button>
+      <div class="curtain-stage">
+        <p class="curtain-place" data-i18n="curtain.place">Baku</p>
+        <img
+          class="curtain-mark"
+          src="assets/logo-velvet.png"
+          alt="Velvet Strategy"
+          width="580"
+          height="301"
+        />
+        <span class="curtain-rule" aria-hidden="true"></span>
+        <p class="curtain-line" data-i18n="curtain.line">The evening paper</p>
+      </div>
+    </div>
+    <div class="read-line" aria-hidden="true"><i id="read-line"></i></div>
 
     <header class="site-header" id="site-header">
       <a class="wordmark" href="#top">
@@ -104,7 +134,7 @@
         </div>
       </section>
 
-      <section class="featured" aria-label="Press">
+      <section class="featured reveal" aria-label="Press">
         <p data-i18n="featured.label">As seen in</p>
         <ul class="featured-logos" id="press-marks">
           <li>
@@ -149,7 +179,7 @@
 
       <section class="section desk" id="desk">
         <div class="desk-wrap">
-          <header class="desk-masthead">
+          <header class="desk-masthead reveal">
             <div class="desk-folio">
               <p class="eyebrow" data-i18n="desk.eyebrow">Press</p>
               <p class="desk-volume">
@@ -169,7 +199,7 @@
       </section>
 
       <section class="section contact" id="contact">
-        <div class="wrap contact-grid">
+        <div class="wrap contact-grid reveal">
           <div>
             <p class="eyebrow" data-i18n="contact.eyebrow">Correspondence</p>
             <h2 class="section-title" data-i18n="contact.title">Write to the desk</h2>
@@ -225,7 +255,7 @@
       </section>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer reveal">
       <p class="footer-colophon" data-i18n="footer.colophon"></p>
       <p>
         © <span data-year></span> <span data-brand="legal"></span>.

@@ -24,6 +24,11 @@ window.I18N = {
       film: "Watch the film",
       edition: "Late city edition",
     },
+    curtain: {
+      skip: "Skip",
+      place: "Baku",
+      line: "The evening paper",
+    },
     featured: {
       label: "As seen in",
       hint: "Tap a title to open its desk.",
@@ -192,6 +197,11 @@ window.I18N = {
       film: "شاهد الفيلم",
       edition: "الطبعة المتأخرة",
     },
+    curtain: {
+      skip: "تخطٍ",
+      place: "باكو",
+      line: "الصحيفة المسائية",
+    },
     featured: { label: "كما ورد في", hint: "اضغط عنوانًا لتفتح مكتبه." },
     film: {
       title: "المشغل",
@@ -351,6 +361,11 @@ window.I18N = {
       cta: "Открыть сегодняшний выпуск",
       film: "Смотреть фильм",
       edition: "Поздний городской выпуск",
+    },
+    curtain: {
+      skip: "Пропустить",
+      place: "Баку",
+      line: "Вечерний выпуск",
     },
     featured: { label: "Публикации", hint: "Нажмите издание, чтобы открыть его стол." },
     film: {
