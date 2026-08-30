@@ -998,11 +998,16 @@ html[dir="rtl"] .btn-ghost .arrow::after {
 
 /* Founder */
 .founder {
+  --quote: "Bodoni Moda", "Didot", "Bodoni MT", "Times New Roman", serif;
   position: relative;
   overflow: hidden;
-  padding: 6rem var(--pad) 7.5rem;
+  padding: 6rem var(--pad) 9.4rem;
   background: var(--beige);
   color: var(--navy);
+}
+
+html[lang="ar"] .founder {
+  --quote: var(--ar-serif);
 }
 
 .founder::after {
@@ -1010,7 +1015,7 @@ html[dir="rtl"] .btn-ghost .arrow::after {
   position: absolute;
   inset-inline-end: 4vw;
   top: 0.4rem;
-  font-family: var(--serif);
+  font-family: var(--quote);
   font-size: clamp(8rem, 18vw, 15rem);
   font-weight: 500;
   line-height: 1;
@@ -1049,58 +1054,59 @@ html[dir="rtl"] .founder::after {
 }
 
 .founder-copy {
-  max-width: 40rem;
+  max-width: 38rem;
 }
 
 .founder .eyebrow {
+  margin: 0 0 0.35rem;
   color: var(--gold-deep);
+  font-size: 0.68rem;
 }
 
 .founder h2 {
   margin: 0 0 1.15rem;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(1.55rem, 2.8vw, 2.15rem);
-  line-height: 1.22;
-  letter-spacing: 0.01em;
+  font-family: var(--quote);
+  font-weight: 600;
+  font-size: clamp(1.85rem, 3.3vw, 2.5rem);
+  line-height: 1.12;
+  letter-spacing: 0;
   color: var(--navy);
-  text-wrap: balance;
 }
 
 .founder-copy > p:not(.founder-sign) {
-  margin: 0 0 0.85rem;
+  margin: 0.55rem 0;
   color: var(--ink-mist);
-  font-size: 1rem;
+  font-size: 0.98rem;
   line-height: 1.7;
 }
 
 .founder blockquote {
-  margin: 1.5rem 0 1.35rem;
+  margin: 1.6rem 0;
   padding-inline-start: 1.35rem;
   border-inline-start: 2px solid var(--gold);
   color: var(--navy);
-  font-family: var(--serif);
-  font-size: clamp(1.15rem, 2vw, 1.32rem);
+  font-family: var(--quote);
+  font-size: clamp(1.2rem, 1.8vw, 1.3rem);
   font-weight: 500;
-  line-height: 1.45;
+  line-height: 1.4;
   font-style: normal;
 }
 
 .founder-sign {
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
 }
 
 .founder-sign strong {
   display: block;
-  font-family: var(--serif);
-  font-weight: 500;
-  font-size: 1.15rem;
+  font-family: var(--quote);
+  font-weight: 600;
+  font-size: 1.05rem;
   color: var(--navy);
 }
 
 .founder-sign small {
   display: block;
-  margin-top: 0.2rem;
+  margin-top: 0.15rem;
   font-size: 0.68rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1109,7 +1115,7 @@ html[dir="rtl"] .founder::after {
 
 @media (min-width: 860px) {
   .founder-grid {
-    grid-template-columns: 24rem 1fr;
+    grid-template-columns: 22.5rem 1fr;
     gap: 4.75rem;
     align-items: center;
   }
