@@ -38,6 +38,15 @@ window.I18N = {
       label: "As seen in",
       hint: "Tap a title to open its magazine.",
     },
+    founder: {
+      eyebrow: "From the founder",
+      title:
+        "Velvet Strategy is more than a PR and communications company. It is a team of experienced professionals united by one vision – to build strong brands, shape their reputation, and take them to the next level.",
+      p1: "We bring together expertise in PR, marketing, branding, media, and large-scale international events, creating solutions that deliver meaningful results.",
+      p2: "Our approach is built on professionalism, creativity, strategic thinking, and high standards. We create projects to be proud of – and brands that simply cannot be overlooked.",
+      name: "Vugar Safarli",
+      role: "Founder & Executive Director",
+    },
     film: {
       title: "The atelier",
       body: "A short film of how the house works. Replace this overlay with the client’s showreel before launch.",
@@ -306,6 +315,15 @@ window.I18N = {
       line: "الصحيفة المسائية",
     },
     featured: { label: "كما ورد في", hint: "اضغط عنوانًا لتفتح عموده في المجلة." },
+    founder: {
+      eyebrow: "من المؤسس",
+      title:
+        "Velvet Strategy أكثر من شركة علاقات عامة واتصالات. هي فريق من المهنيين ذوي الخبرة يجمعهم رؤية واحدة – بناء علامات قوية، وتشكيل سمعتها، والارتقاء بها إلى المستوى التالي.",
+      p1: "نجمع الخبرة في العلاقات العامة والتسويق والعلامات والإعلام والفعاليات الدولية واسعة النطاق، لنبتكر حلولًا تحقق نتائج ذات معنى.",
+      p2: "يقوم نهجنا على المهنية والإبداع والتفكير الاستراتيجي والمعايير العالية. نصنع مشاريع يُفتخر بها – وعلامات لا يمكن تجاهلها.",
+      name: "Vugar Safarli",
+      role: "المؤسس والمدير التنفيذي",
+    },
     film: {
       title: "المشغل",
       body: "فيلم قصير عن أسلوب الدار. استبدله بعرض العميل قبل الإطلاق.",
@@ -525,6 +543,15 @@ window.I18N = {
       line: "Вечерний выпуск",
     },
     featured: { label: "Публикации", hint: "Нажмите издание, чтобы открыть его колонку в журнале." },
+    founder: {
+      eyebrow: "От основателя",
+      title:
+        "Velvet Strategy — больше чем PR- и коммуникационная компания. Это команда опытных профессионалов, объединённых одним видением – строить сильные бренды, формировать их репутацию и выводить их на новый уровень.",
+      p1: "Мы объединяем экспертизу в PR, маркетинге, брендинге, медиа и крупных международных событиях, создавая решения, которые дают ощутимый результат.",
+      p2: "Наш подход основан на профессионализме, креативности, стратегическом мышлении и высоких стандартах. Мы создаём проекты, которыми можно гордиться – и бренды, которые невозможно не заметить.",
+      name: "Vugar Safarli",
+      role: "Основатель и исполнительный директор",
+    },
     film: {
       title: "Ателье",
       body: "Короткий фильм о том, как работает дом. Перед запуском замените на шоурил клиента.",
