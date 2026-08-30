@@ -22,7 +22,7 @@ window.I18N = {
     },
     lang: { en: "EN", ar: "عربي", ru: "RU" },
     hero: {
-      kicker: "GLOBAL PR & COMMUNICATIONS ADVISORS",
+      kicker: "Global PR & communications advisors",
       accent: "",
       body: "Building brands, shaping reputations and creating connections worldwide.",
       cta: "Open today’s edition",

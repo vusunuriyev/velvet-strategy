@@ -772,7 +772,7 @@ html.curtain-skip .hero-copy > * {
   font-weight: 500;
   font-size: clamp(1.85rem, 5.4vw, 3.35rem);
   line-height: 1.12;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   text-wrap: balance;
 }
 
