@@ -701,7 +701,7 @@ html.curtain-skip .hero-bg {
 .hero-copy {
   position: relative;
   z-index: 1;
-  max-width: 36rem;
+  max-width: 42rem;
 }
 
 html:has(.curtain):not(.curtain-skip):not(.is-ready) .hero-copy > * {
@@ -770,9 +770,10 @@ html.curtain-skip .hero-copy > * {
   color: var(--gold);
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(2.35rem, 7.4vw, 4.6rem);
-  line-height: 1.08;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.85rem, 5.4vw, 3.35rem);
+  line-height: 1.12;
+  letter-spacing: 0.06em;
+  text-wrap: balance;
 }
 
 .hero-title em {
@@ -792,9 +793,9 @@ html[lang="ar"] .hero-title em {
 
 .hero-body {
   margin: 1.15rem 0 1.7rem;
-  max-width: 28rem;
+  max-width: 32rem;
   color: var(--mist);
-  font-size: 0.98rem;
+  font-size: 1.05rem;
 }
 
 .hero-actions {
@@ -2713,7 +2714,7 @@ html[lang="ru"] .article-well h1 {
     padding-inline-end: 8vw;
   }
   .hero-copy {
-    max-width: 38rem;
+    max-width: 44rem;
   }
   .section {
     padding: 5.8rem var(--pad);
