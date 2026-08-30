@@ -230,6 +230,40 @@
     revealApi.refresh();
   }
 
+  function renderHotNews() {
+    const root = $("#hot-news");
+    if (!root || !Array.isArray(window.NEWS)) return;
+    const lang = newsLang();
+    const dict = window.I18N[lang] || window.I18N.en;
+    root.innerHTML = window.NEWS.slice(0, 3)
+      .map((item, i) => {
+        const n = String(i + 1).padStart(2, "0");
+        const title = item.title[lang] || item.title.en;
+        const lede = item.lede[lang] || item.lede.en;
+        const kind = kindLabel(dict, item.kind);
+        const date = formatNewsDate(item.date, lang);
+        const role = i === 0 ? "lead" : "column";
+        const lazy = i === 0 ? "eager" : "lazy";
+        return `<a class="heat-card is-${role}" href="magazine.html#story-${n}" style="--i:${i}">
+  <span class="heat-frame">
+    <img src="assets/news/news-${esc(item.img)}.jpg" alt="" width="900" height="1200" loading="${lazy}" decoding="async" />
+    <span class="heat-folio" aria-hidden="true">${n}</span>
+  </span>
+  <span class="heat-copy">
+    <span class="heat-meta">
+      <span class="heat-outlet">${esc(item.outlet)}</span>
+      <time datetime="${esc(item.date)}">${esc(date)}</time>
+    </span>
+    <span class="heat-kind">${esc(kind)}</span>
+    <span class="heat-headline">${esc(title)}</span>
+    <span class="heat-lede">${esc(lede)}</span>
+  </span>
+</a>`;
+      })
+      .join("");
+    revealApi.refresh();
+  }
+
   function renderHouse(dict) {
     const services = $("#service-list");
     if (services && dict.services && Array.isArray(dict.services.items)) {
@@ -360,6 +394,7 @@
     });
 
     renderHome(dict);
+    renderHotNews();
     renderHouse(dict);
     stampEditionDate();
     pageTitle(dict);
@@ -826,7 +861,7 @@
   function setupReveal() {
     if (prefersReduce()) {
       const show = () => {
-        $$(".reveal, .news-card").forEach((el) => el.classList.add("is-in"));
+        $$(".reveal, .news-card, .heat-card").forEach((el) => el.classList.add("is-in"));
       };
       show();
       return { refresh: show };
@@ -844,7 +879,7 @@
     );
 
     const watch = () => {
-      $$(".reveal, .news-card").forEach((el) => {
+      $$(".reveal, .news-card, .heat-card").forEach((el) => {
         if (!el.classList.contains("is-in")) io.observe(el);
       });
     };

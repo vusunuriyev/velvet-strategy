@@ -38,6 +38,18 @@ window.I18N = {
       label: "As seen in",
       hint: "Tap a title to open its magazine.",
     },
+    impact: {
+      title: "Creating impact beyond borders",
+      line1: "Creating impact",
+      line2: "beyond borders",
+      p1: "From strategic communications to large-scale international events, Velvet Strategy connects brands, people and ideas across markets.",
+      p2: "We create experiences that drive influence, visibility and meaningful connections – turning ambitious ideas into projects with lasting impact.",
+    },
+    heat: {
+      eyebrow: "Hot news",
+      title: "Tonight’s edition",
+      more: "The magazine",
+    },
     founder: {
       eyebrow: "From the founder",
       title:
@@ -315,6 +327,18 @@ window.I18N = {
       line: "الصحيفة المسائية",
     },
     featured: { label: "كما ورد في", hint: "اضغط عنوانًا لتفتح عموده في المجلة." },
+    impact: {
+      title: "صناعة أثر يتجاوز الحدود",
+      line1: "صناعة أثر",
+      line2: "يتجاوز الحدود",
+      p1: "من الاتصالات الاستراتيجية إلى الفعاليات الدولية واسعة النطاق، تربط Velvet Strategy العلامات والناس والأفكار عبر الأسواق.",
+      p2: "نصنع تجارب تدفع التأثير والحضور والصلات ذات المعنى – نحوّل الأفكار الطموحة إلى مشاريع ذات أثر دائم.",
+    },
+    heat: {
+      eyebrow: "أخبار ساخنة",
+      title: "طبعة الليلة",
+      more: "المجلة",
+    },
     founder: {
       eyebrow: "من المؤسس",
       title:
@@ -543,6 +567,18 @@ window.I18N = {
       line: "Вечерний выпуск",
     },
     featured: { label: "Публикации", hint: "Нажмите издание, чтобы открыть его колонку в журнале." },
+    impact: {
+      title: "Создавая влияние за пределами границ",
+      line1: "Создавая влияние",
+      line2: "за пределами границ",
+      p1: "От стратегических коммуникаций до крупных международных событий Velvet Strategy соединяет бренды, людей и идеи на разных рынках.",
+      p2: "Мы создаём опыт, который усиливает влияние, видимость и значимые связи – превращая амбициозные идеи в проекты с устойчивым эффектом.",
+    },
+    heat: {
+      eyebrow: "Горячие новости",
+      title: "Вечерний выпуск",
+      more: "Журнал",
+    },
     founder: {
       eyebrow: "От основателя",
       title:
