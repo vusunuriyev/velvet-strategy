@@ -123,6 +123,23 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.article-scroll::-webkit-scrollbar,
+.ribbon-track::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.article-scroll,
+.ribbon-track {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 html:has(.curtain):not(.curtain-skip):not(.is-ready) {
@@ -148,6 +165,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 body::after {
