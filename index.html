@@ -20,7 +20,6 @@
       (function () {
         try {
           var skip =
-            sessionStorage.getItem("velvet-curtain") === "1" ||
             window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
             /^#story-/.test(location.hash);
           if (skip) document.documentElement.classList.add("curtain-skip");

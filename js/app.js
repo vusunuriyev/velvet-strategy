@@ -758,8 +758,10 @@
       root.style.setProperty("--header-h", header.offsetHeight + "px");
     };
     onScroll();
+    requestAnimationFrame(onScroll);
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    window.addEventListener("pageshow", onScroll);
   }
 
   function prefersReduce() {
@@ -775,12 +777,8 @@
     }
 
     const deep = /^#story-/.test(location.hash);
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem("velvet-curtain") === "1";
-    } catch (err) {}
 
-    if (prefersReduce() || seen || deep || root.classList.contains("curtain-skip")) {
+    if (prefersReduce() || deep || root.classList.contains("curtain-skip")) {
       root.classList.add("curtain-skip", "is-ready");
       curtain.remove();
       return;
@@ -796,9 +794,6 @@
       document.removeEventListener("keydown", onKey);
       root.classList.add("is-ready");
       curtain.classList.add("is-out");
-      try {
-        sessionStorage.setItem("velvet-curtain", "1");
-      } catch (err) {}
       const tidy = () => curtain.remove();
       curtain.addEventListener("transitionend", tidy, { once: true });
       window.setTimeout(tidy, 1100);
