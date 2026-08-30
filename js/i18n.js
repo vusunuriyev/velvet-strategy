@@ -44,25 +44,11 @@ window.I18N = {
       close: "Close",
     },
     about: {
-      eyebrow: "House",
-      title: "The work is invisible. The outcome is not.",
-      lead: "A private press house in Baku, retained when a name must travel — and still hold under diligence.",
-      body: "Velvet Strategy is hired for covers, portraits, rooms, and the sequence around them. We work in English, Arabic and Russian. The public sees a page. The principal sees a season.",
-      body2: "We do not announce ourselves into the story. Presence is arranged. Absence, when it is useful, is staged. What cannot survive reprint is taken out before the plate is made.",
-      principles: [
-        {
-          t: "Presence",
-          d: "The room is dressed before anyone is announced. Furniture, light, and the pause do the introducing.",
-        },
-        {
-          t: "Sequence",
-          d: "Who sees, who is lit, who is left unnamed until the second edition. Order is the whole craft.",
-        },
-        {
-          t: "Withholding",
-          d: "Luxury, at its highest, is the decision not to explain. The object does the work.",
-        },
-      ],
+      eyebrow: "The house",
+      title: "About",
+      p1: "Velvet Strategy is a global communications and creative company working with brands, businesses, personalities and organizations across international markets.",
+      p2: "We create strategic PR, marketing and media solutions that build visibility, shape reputations and connect brands with influential audiences around the world.",
+      p3: "From international PR campaigns and brand positioning to luxury experiences, editorial storytelling and high-profile events, Velvet Strategy brings strategy, creativity and global connections together.",
     },
     services: {
       eyebrow: "Retainers",
@@ -327,15 +313,10 @@ window.I18N = {
     },
     about: {
       eyebrow: "الدار",
-      title: "العمل لا يُرى. النتيجة تُرى.",
-      lead: "دار صحافة خاصة في باكو، تُعهَد إليها حين يجب أن يسافر الاسم — وأن يصمد أمام الفحص.",
-      body: "تُستأجر Velvet Strategy للأغلفة والبورتريه والغرف والتسلسل من حولها. نعمل بالإنجليزية والعربية والروسية. الجمهور يرى صفحة. والرئيس يرى موسمًا.",
-      body2: "لا نُعلن أنفسنا داخل القصة. يُرتَّب الحضور. والغياب، إن نفع، يُخرَج. ما لا يصمد أمام إعادة الطبع يُخرَج قبل صنع اللوح.",
-      principles: [
-        { t: "الحضور", d: "تُلبس الغرفة قبل أن يُعلَن أحد. الأثاث والضوء والوقفة تقوم بالتعريف." },
-        { t: "التسلسل", d: "من يرى، من يُضاء، من يُترك بلا اسم حتى الطبعة الثانية. الترتيب هو الحرفة كلها." },
-        { t: "الإمساك", d: "الفخامة في ذروتها قرار بألا يُشرح. يقوم الشيء بالعمل." },
-      ],
+      title: "عن الدار",
+      p1: "Velvet Strategy شركة عالمية للاتصالات والإبداع تعمل مع العلامات التجارية والشركات والشخصيات والمؤسسات عبر الأسواق الدولية.",
+      p2: "نبتكر حلول علاقات عامة وتسويق وإعلام استراتيجية تبني الحضور، وتشكّل السمعة، وتربط العلامات بجماهير مؤثرة حول العالم.",
+      p3: "من حملات العلاقات العامة الدولية وتموضع العلامة إلى تجارب الفخامة والسرد التحريري والفعاليات رفيعة المستوى، تجمع Velvet Strategy الاستراتيجية والإبداع والصلات العالمية في عمل واحد.",
     },
     services: {
       eyebrow: "التعاقد",
@@ -551,15 +532,10 @@ window.I18N = {
     },
     about: {
       eyebrow: "Дом",
-      title: "Работа невидима. Результат — нет.",
-      lead: "Частный пресс-дом в Баку. Нас удерживают, когда имя должно путешествовать — и выдержать проверку.",
-      body: "Velvet Strategy нанимают для обложек, портретов, залов и последовательности вокруг них. Мы работаем на английском, арабском и русском. Публика видит страницу. Принципал — сезон.",
-      body2: "Мы не объявляем себя внутрь истории. Присутствие ставят. Отсутствие, если оно нужно, тоже. Что не выдержит перепечатки, убирают до пластины.",
-      principles: [
-        { t: "Присутствие", d: "Зал одевают до того, как кого-то объявят. Мебель, свет и пауза представляют сами." },
-        { t: "Последовательность", d: "Кто видит, кого освещают, кого не называют до второго выпуска. Порядок и есть ремесло." },
-        { t: "Удержание", d: "Высшая роскошь — решение ничего не объяснять. Работу делает предмет." },
-      ],
+      title: "О нас",
+      p1: "Velvet Strategy — международная коммуникационная и креативная компания, работающая с брендами, бизнесом, публичными фигурами и организациями на мировых рынках.",
+      p2: "Мы создаём стратегические решения в PR, маркетинге и медиа, которые повышают видимость, формируют репутацию и соединяют бренды с влиятельной аудиторией по всему миру.",
+      p3: "От международных PR-кампаний и позиционирования бренда до люксовых впечатлений, редакционного сторителлинга и мероприятий высокого уровня — Velvet Strategy соединяет стратегию, креатив и глобальные связи.",
     },
     services: {
       eyebrow: "Ретейнер",

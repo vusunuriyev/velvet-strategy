@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-ready">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Velvet Strategy</title>
+    <title>Contact — Velvet Strategy</title>
     <meta name="description" content="Velvet Strategy — PR, marketing, and event management. Where strategy turns into status." />
     <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,31 +13,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script>
-      (function () {
-        try {
-          var skip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          if (skip) document.documentElement.classList.add("curtain-skip");
-        } catch (e) {}
-      })();
-    </script>
   </head>
-  <body data-page="home">
-    <div class="curtain" id="curtain">
-      <button type="button" class="curtain-skip" id="curtain-skip" data-i18n="curtain.skip">Skip</button>
-      <div class="curtain-stage">
-        <p class="curtain-place" data-i18n="curtain.place">Baku</p>
-        <img class="curtain-mark" src="assets/logo-velvet.png" alt="Velvet Strategy" width="580" height="301" />
-        <span class="curtain-rule" aria-hidden="true"></span>
-        <p class="curtain-line" data-i18n="curtain.line">The evening paper</p>
-      </div>
-    </div>
-
+  <body data-page="contact">
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
     <div class="read-line" aria-hidden="true"><i id="read-line"></i></div>
 
     <header class="site-header" id="site-header">
-      <a class="wordmark" href="#top">
+      <a class="wordmark" href="index.html">
         <img src="assets/logo-velvet.png" alt="Velvet Strategy" width="580" height="301" />
       </a>
       <div class="header-end">
@@ -100,60 +82,56 @@
     </div>
 
     <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-veil" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="hero-edition">
-            <span class="live-dot" aria-hidden="true"></span>
-            <span data-i18n="hero.edition">Late city edition</span>
-            <span aria-hidden="true"> · </span>
-            <time data-edition-date></time>
-          </p>
-          <h1 class="hero-title">
-            <span data-i18n="hero.kicker">The evening paper</span>
-            <em data-i18n="hero.accent">is still being set.</em>
-          </h1>
-          <p class="hero-body" data-i18n="hero.body"></p>
-          <div class="hero-actions">
-            <a class="btn-ghost" href="magazine.html">
-              <span data-i18n="hero.cta">Open today’s edition</span>
-              <span class="arrow" aria-hidden="true"></span>
-            </a>
+      <section class="section contact" id="contact">
+        <div class="wrap contact-grid reveal">
+          <div>
+            <p class="eyebrow" data-i18n="contact.eyebrow">Correspondence</p>
+            <h2 class="section-title" data-i18n="contact.title">Write to the desk</h2>
+            <p class="lede" data-i18n="contact.intro"></p>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span data-i18n="contact.phone">Phone</span>
+                <a data-contact="phone" href="tel:+994554627788">+994 55 462 77 88</a>
+              </div>
+              <div class="contact-item" data-if-email hidden>
+                <span data-i18n="contact.email">Email</span>
+                <a data-contact="email" href="#"></a>
+              </div>
+              <div class="contact-item">
+                <span data-i18n="contact.office">Desk</span>
+                <p>
+                  <span data-contact="office1"></span><br />
+                  <span data-contact="office2"></span>
+                </p>
+              </div>
+            </div>
+            <div class="contact-actions">
+              <a class="btn-ghost" data-wa href="#" data-i18n="contact.whatsapp">WhatsApp</a>
+              <a class="btn-ghost" id="book-call" href="contact.html" data-if-calendly hidden data-i18n="contact.book">Book a call</a>
+            </div>
           </div>
+          <form class="form" id="contact-form" novalidate>
+            <div class="field">
+              <label for="name" data-i18n="contact.form.name">Name</label>
+              <input id="name" name="name" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email" data-i18n="contact.form.email">Reply to</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="message" data-i18n="contact.form.message">Your note</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <label class="consent">
+              <input id="consent" name="consent" type="checkbox" />
+              <span><span data-i18n="contact.form.consent"></span>
+                <a href="privacy.html" data-i18n="nav.privacy">Privacy</a></span>
+            </label>
+            <button class="btn-solid" id="form-submit" type="submit" data-i18n="contact.form.submit">Send the note</button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
         </div>
-      </section>
-
-      <section class="featured reveal" aria-label="Press">
-        <p data-i18n="featured.label">As seen in</p>
-        <ul class="featured-logos" id="press-marks">
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Forbes" data-outlet="Forbes">
-              <img src="assets/press/forbes.svg" alt="Forbes" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Marie Claire" data-outlet="Marie Claire">
-              <img src="assets/press/marie-claire.svg" alt="Marie Claire" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Esquire" data-outlet="Esquire">
-              <img src="assets/press/esquire.svg" alt="Esquire" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Tatler" data-outlet="Tatler">
-              <img src="assets/press/tatler.svg" alt="Tatler" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Associated Press" data-outlet="Associated Press">
-              <img src="assets/press/ap.svg" alt="Associated Press" />
-            </a>
-          </li>
-        </ul>
-        <p class="featured-hint" data-i18n="featured.hint"></p>
       </section>
     </main>
 

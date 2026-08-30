@@ -54,9 +54,6 @@
     $$("[data-year]").forEach((el) => {
       el.textContent = String(new Date().getFullYear());
     });
-    if (!document.body.dataset.legal) {
-      document.title = s.brand.name;
-    }
 
     const waHref = "https://wa.me/" + String(s.contact.whatsapp).replace(/\D/g, "");
     $$("[data-wa]").forEach((el) => {
@@ -194,16 +191,6 @@
     }
     if (showing) showing.hidden = true;
 
-    $$("[data-edition-date]").forEach((el) => {
-      el.dateTime = new Date().toISOString().slice(0, 10);
-      el.textContent = new Intl.DateTimeFormat(lang === "ar" ? "ar" : lang === "ru" ? "ru-RU" : "en-GB", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }).format(new Date());
-    });
-
     if (!list.length) {
       grid.innerHTML = `<p class="news-empty">${esc(dict.desk.empty || "")}</p>`;
       revealApi.refresh();
@@ -244,19 +231,6 @@
   }
 
   function renderHouse(dict) {
-    const principles = $("#principle-list");
-    if (principles && dict.about && Array.isArray(dict.about.principles)) {
-      principles.innerHTML = dict.about.principles
-        .map(
-          (item, i) => `<li class="principle">
-  <span aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
-  <b>${esc(item.t)}</b>
-  <p>${esc(item.d)}</p>
-</li>`
-        )
-        .join("");
-    }
-
     const services = $("#service-list");
     if (services && dict.services && Array.isArray(dict.services.items)) {
       services.innerHTML = dict.services.items
@@ -289,7 +263,7 @@
       partners.innerHTML = dict.partners.names
         .map(
           (name) => `<li>
-  <button type="button" data-outlet="${esc(name)}">${esc(name)}</button>
+  <a href="magazine.html?outlet=${encodeURIComponent(name)}" data-outlet="${esc(name)}">${esc(name)}</a>
 </li>`
         )
         .join("");
@@ -324,6 +298,46 @@
       .join("");
   }
 
+  function stampEditionDate() {
+    const lang = newsLang();
+    const locale = lang === "ar" ? "ar" : lang === "ru" ? "ru-RU" : "en-GB";
+    $$("[data-edition-date]").forEach((el) => {
+      el.dateTime = new Date().toISOString().slice(0, 10);
+      el.textContent = new Intl.DateTimeFormat(locale, {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      }).format(new Date());
+    });
+  }
+
+  function pageTitle(dict) {
+    const legalKind = document.body.dataset.legal;
+    const page = document.body.dataset.page;
+    const brand = window.SITE.brand.name;
+    if (legalKind && dict[legalKind] && dict[legalKind].title) {
+      document.title = dict[legalKind].title + " — " + brand;
+      return;
+    }
+    if (page && page !== "home" && dict.nav && dict.nav[page]) {
+      document.title = dict.nav[page] + " — " + brand;
+      return;
+    }
+    document.title = brand;
+  }
+
+  function markNav() {
+    const page = document.body.dataset.page;
+    $$(".mast-nav a, .menu-link").forEach((a) => {
+      const href = a.getAttribute("href") || "";
+      const on = Boolean(page) && page !== "home" && href.indexOf(page + ".html") !== -1;
+      a.classList.toggle("is-on", on);
+      if (on) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
+
   function applyLang(lang) {
     const dict = window.I18N[lang] || window.I18N.en;
     document.documentElement.lang = dict.locale;
@@ -347,6 +361,9 @@
 
     renderHome(dict);
     renderHouse(dict);
+    stampEditionDate();
+    pageTitle(dict);
+    markNav();
     refreshArticle();
     const legalKind = document.body.dataset.legal;
     if (legalKind) renderLegal(dict, legalKind);
@@ -725,9 +742,11 @@
   }
 
   function setupPress() {
+    if (!$("#news-grid")) return;
     const onOutlet = (e) => {
       const btn = e.target.closest("[data-outlet]");
       if (!btn) return;
+      e.preventDefault();
       const next = btn.dataset.outlet || "";
       activeOutlet = activeOutlet === next ? "" : next;
       const dict = window.I18N[newsLang()] || window.I18N.en;
@@ -735,7 +754,7 @@
       scrollToDesk();
     };
     $("#press-marks")?.addEventListener("click", onOutlet);
-    $("#partners")?.addEventListener("click", onOutlet);
+    $("#partner-list")?.addEventListener("click", onOutlet);
   }
 
   function scrollToDesk() {
@@ -850,6 +869,11 @@
       btn.addEventListener("click", () => applyLang(btn.dataset.lang));
     });
   }
+
+  try {
+    const q = new URLSearchParams(location.search).get("outlet");
+    if (q) activeOutlet = q;
+  } catch (e) {}
 
   applyBrand();
   applyLang(currentLang());

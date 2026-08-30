@@ -186,6 +186,10 @@ textarea {
   outline-offset: 3px;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .skip {
   position: absolute;
   inset-inline-start: 1rem;
@@ -481,8 +485,13 @@ html:has(.curtain):not(.curtain-skip):not(.is-ready) .site-header {
   color: var(--gold);
 }
 
-.mast-nav a:hover::after {
+.mast-nav a:hover::after,
+.mast-nav a.is-on::after {
   transform: scaleX(1);
+}
+
+.mast-nav a.is-on {
+  color: var(--gold);
 }
 
 .header-end {
@@ -609,6 +618,10 @@ html:has(.curtain):not(.curtain-skip):not(.is-ready) .site-header {
   font-weight: 500;
   letter-spacing: 0.03em;
   line-height: 1.18;
+}
+
+.menu-link.is-on {
+  color: var(--gold);
 }
 
 .menu-link span {
@@ -1000,6 +1013,80 @@ html[dir="rtl"] .btn-ghost .arrow::after {
   color: var(--mist);
 }
 
+.page-sheet {
+  min-height: calc(100svh - var(--header-h));
+}
+
+.page-band {
+  padding: 3.2rem var(--pad) 2.6rem;
+}
+
+.page-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 5.4vw, 3.4rem);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  color: var(--gold);
+  text-wrap: balance;
+}
+
+.page-rule {
+  display: block;
+  width: 4.2rem;
+  height: 1px;
+  margin: 1.35rem 0 0;
+  background: var(--gold);
+  transform-origin: 0 50%;
+}
+
+html[dir="rtl"] .page-rule {
+  transform-origin: 100% 50%;
+}
+
+html.is-ready .page-rule {
+  animation: draw-rule 0.9s var(--ease) both;
+}
+
+.page-sheet > .wrap {
+  padding: 1.4rem var(--pad) 4.6rem;
+}
+
+.house-paper .page-band {
+  background: var(--navy);
+}
+
+.house-paper .page-title {
+  color: var(--gold);
+}
+
+.house-ink .page-band .lede {
+  color: var(--mist);
+}
+
+.letter {
+  max-width: 40rem;
+  padding: 2.2rem 0 1.5rem;
+}
+
+.letter p {
+  margin: 0 0 1.4rem;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--ink-mist);
+}
+
+.letter p:first-child {
+  font-size: 1.22rem;
+  line-height: 1.75;
+  color: var(--navy);
+}
+
+.letter p:last-child {
+  margin-bottom: 0;
+}
+
 .house-paper {
   background: var(--beige);
   color: var(--navy);
@@ -1017,6 +1104,14 @@ html[dir="rtl"] .btn-ghost .arrow::after {
 
 .house-paper .eyebrow {
   color: var(--gold-deep);
+}
+
+.house-paper .page-band .eyebrow {
+  color: var(--gold);
+}
+
+.house-paper .page-band .lede {
+  color: var(--mist);
 }
 
 .house-ink {
@@ -1156,14 +1251,19 @@ html[dir="rtl"] .btn-ghost .arrow::after {
   border-top: 1px solid var(--ink-line);
 }
 
-.partner-list li,
-.partner-list button {
+.partner-list li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid var(--ink-line);
+}
+
+.partner-list button,
+.partner-list a {
   appearance: none;
   width: 100%;
   margin: 0;
   padding: 0.95rem 0;
   border: 0;
-  border-bottom: 1px solid var(--ink-line);
   background: transparent;
   color: var(--navy);
   font-family: var(--serif);
@@ -1171,10 +1271,13 @@ html[dir="rtl"] .btn-ghost .arrow::after {
   font-weight: 500;
   line-height: 1.1;
   text-align: start;
+  text-decoration: none;
   cursor: pointer;
+  display: block;
 }
 
-.partner-list button:hover {
+.partner-list button:hover,
+.partner-list a:hover {
   color: var(--gold-deep);
 }
 
@@ -2085,6 +2188,7 @@ body.article-open .skip {
 /* Contact */
 .contact {
   background: var(--navy-2);
+  min-height: calc(100svh - var(--header-h));
 }
 
 .contact-grid {
@@ -2401,6 +2505,7 @@ body.film-open {
 
 html[lang="ar"] .hero-title,
 html[lang="ar"] .section-title,
+html[lang="ar"] .page-title,
 html[lang="ar"] .desk-title,
 html[lang="ar"] .news-headline,
 html[lang="ar"] .menu-link {
@@ -2503,8 +2608,8 @@ html[lang="ru"] .article-well h1 {
   .partner-list {
     grid-template-columns: 1fr 1fr;
   }
-  .partner-list li,
-  .partner-list button {
+  .partner-list button,
+  .partner-list a {
     padding-inline-end: 1rem;
   }
   .case-grid {
@@ -2669,7 +2774,8 @@ html[lang="ru"] .article-well h1 {
   .curtain-line,
   .hero-copy > *,
   .reveal,
-  .wa {
+  .wa,
+  .page-rule {
     animation: none !important;
     transition: none !important;
   }

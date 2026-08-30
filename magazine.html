@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-ready">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Velvet Strategy</title>
+    <title>Magazine — Velvet Strategy</title>
     <meta name="description" content="Velvet Strategy — PR, marketing, and event management. Where strategy turns into status." />
     <link rel="icon" href="assets/favicon.png" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,31 +13,13 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
-    <script>
-      (function () {
-        try {
-          var skip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          if (skip) document.documentElement.classList.add("curtain-skip");
-        } catch (e) {}
-      })();
-    </script>
   </head>
-  <body data-page="home">
-    <div class="curtain" id="curtain">
-      <button type="button" class="curtain-skip" id="curtain-skip" data-i18n="curtain.skip">Skip</button>
-      <div class="curtain-stage">
-        <p class="curtain-place" data-i18n="curtain.place">Baku</p>
-        <img class="curtain-mark" src="assets/logo-velvet.png" alt="Velvet Strategy" width="580" height="301" />
-        <span class="curtain-rule" aria-hidden="true"></span>
-        <p class="curtain-line" data-i18n="curtain.line">The evening paper</p>
-      </div>
-    </div>
-
+  <body data-page="magazine">
     <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
     <div class="read-line" aria-hidden="true"><i id="read-line"></i></div>
 
     <header class="site-header" id="site-header">
-      <a class="wordmark" href="#top">
+      <a class="wordmark" href="index.html">
         <img src="assets/logo-velvet.png" alt="Velvet Strategy" width="580" height="301" />
       </a>
       <div class="header-end">
@@ -100,60 +82,37 @@
     </div>
 
     <main id="main">
-      <section class="hero" id="top">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-veil" aria-hidden="true"></div>
-        <div class="hero-copy">
-          <p class="hero-edition">
-            <span class="live-dot" aria-hidden="true"></span>
-            <span data-i18n="hero.edition">Late city edition</span>
-            <span aria-hidden="true"> · </span>
-            <time data-edition-date></time>
-          </p>
-          <h1 class="hero-title">
-            <span data-i18n="hero.kicker">The evening paper</span>
-            <em data-i18n="hero.accent">is still being set.</em>
-          </h1>
-          <p class="hero-body" data-i18n="hero.body"></p>
-          <div class="hero-actions">
-            <a class="btn-ghost" href="magazine.html">
-              <span data-i18n="hero.cta">Open today’s edition</span>
-              <span class="arrow" aria-hidden="true"></span>
-            </a>
+      <section class="magazine" id="magazine">
+        <div class="ribbon" id="editions" aria-label="Press departments">
+          <div class="ribbon-shell">
+            <button type="button" class="ribbon-all" data-kind="" aria-pressed="true">
+              <span data-i18n="ribbon.all">The edition</span>
+            </button>
+            <div class="ribbon-track" id="type-track">
+              <div class="ribbon-run" id="type-rail"></div>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section class="featured reveal" aria-label="Press">
-        <p data-i18n="featured.label">As seen in</p>
-        <ul class="featured-logos" id="press-marks">
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Forbes" data-outlet="Forbes">
-              <img src="assets/press/forbes.svg" alt="Forbes" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Marie Claire" data-outlet="Marie Claire">
-              <img src="assets/press/marie-claire.svg" alt="Marie Claire" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Esquire" data-outlet="Esquire">
-              <img src="assets/press/esquire.svg" alt="Esquire" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Tatler" data-outlet="Tatler">
-              <img src="assets/press/tatler.svg" alt="Tatler" />
-            </a>
-          </li>
-          <li>
-            <a class="press-mark" href="magazine.html?outlet=Associated Press" data-outlet="Associated Press">
-              <img src="assets/press/ap.svg" alt="Associated Press" />
-            </a>
-          </li>
-        </ul>
-        <p class="featured-hint" data-i18n="featured.hint"></p>
+        <section class="section desk" id="desk">
+          <div class="desk-wrap">
+            <header class="desk-masthead reveal">
+              <div class="desk-folio">
+                <p class="eyebrow" data-i18n="desk.eyebrow">Magazine</p>
+                <p class="desk-volume">
+                  <span data-i18n="desk.volume">Vol. I</span>
+                  <span aria-hidden="true"> · </span>
+                  <span id="desk-count">01–15</span>
+                </p>
+              </div>
+              <h2 class="desk-title" id="desk-title" data-i18n="desk.title">Fifteen dispatches.</h2>
+              <p class="desk-lead" id="desk-lead" data-i18n="desk.body"></p>
+              <p class="desk-colophon" data-i18n="desk.colophon"></p>
+              <p class="desk-showing" id="desk-showing" hidden></p>
+              <div class="desk-rule" aria-hidden="true"></div>
+            </header>
+            <div class="news-grid" id="news-grid"></div>
+          </div>
+        </section>
       </section>
     </main>
 
@@ -177,8 +136,55 @@
       </svg>
     </a>
     <div class="toast" id="toast" role="status"></div>
+    <div class="article" id="article" role="dialog" aria-modal="false" aria-labelledby="article-title" aria-hidden="true" hidden inert>
+      <div class="article-progress" aria-hidden="true"><i id="article-progress"></i></div>
+      <header class="article-bar">
+        <button class="article-back" id="article-back" type="button" data-i18n="article.back">The magazine</button>
+        <p class="article-bar-meta" id="article-bar-meta"></p>
+        <div class="article-bar-end">
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+            <button class="lang-btn" type="button" data-lang="ar">عربي</button>
+            <button class="lang-btn" type="button" data-lang="ru">RU</button>
+          </div>
+          <button class="article-x" id="article-close" type="button" data-i18n="article.close">Close</button>
+        </div>
+      </header>
+      <div class="article-scroll" id="article-scroll">
+        <figure class="article-hero">
+          <img id="article-image" alt="" />
+          <span class="article-folio" id="article-folio" aria-hidden="true"></span>
+        </figure>
+        <div class="article-well">
+          <p class="article-printed" id="article-printed"></p>
+          <p class="article-kicker" id="article-kicker"></p>
+          <h1 id="article-title"></h1>
+          <p class="article-standfirst" id="article-standfirst"></p>
+          <p class="article-byline" id="article-byline"></p>
+          <div class="article-rule" aria-hidden="true"></div>
+          <div class="article-body" id="article-body"></div>
+          <p class="article-finis" data-i18n="article.finis">Finis</p>
+          <nav class="article-pager" aria-label="Stories">
+            <button type="button" class="article-nav" id="article-prev">
+              <span class="article-nav-dir"></span>
+              <b class="article-nav-title"></b>
+            </button>
+            <button type="button" class="article-nav" id="article-next">
+              <span class="article-nav-dir"></span>
+              <b class="article-nav-title"></b>
+            </button>
+          </nav>
+          <section class="article-more" id="article-more">
+            <h2 data-i18n="article.more">Also in this edition</h2>
+            <div class="article-related" id="article-related"></div>
+          </section>
+        </div>
+      </div>
+    </div>
     <script src="js/config.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/articles.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
