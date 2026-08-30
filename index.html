@@ -55,10 +55,6 @@
       <a class="wordmark" href="#top">
         <img src="assets/logo-velvet.png" alt="Velvet Strategy" width="580" height="301" />
       </a>
-      <nav class="desk-nav" aria-label="Primary">
-        <a href="#editions" data-i18n="nav.desk">The Desk</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
-      </nav>
       <div class="header-end">
         <div class="lang-switch" role="group" aria-label="Language">
           <button class="lang-btn" type="button" data-lang="en" aria-pressed="true">EN</button>
@@ -77,6 +73,15 @@
           <span class="burger" aria-hidden="true"><i></i><i></i><i></i></span>
         </button>
       </div>
+      <nav class="mast-nav" aria-label="Primary">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#magazine" data-i18n="nav.magazine">Magazine</a>
+        <a href="#events" data-i18n="nav.events">Events</a>
+        <a href="#partners" data-i18n="nav.partners">Partners</a>
+        <a href="#cases" data-i18n="nav.cases">Cases</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
     </header>
 
     <div class="menu" id="site-menu" aria-hidden="true" inert>
@@ -96,8 +101,13 @@
         </button>
       </div>
       <nav class="menu-nav" aria-label="Mobile">
-        <a class="menu-link" href="#editions"><span>01</span><b data-i18n="nav.desk">The Desk</b></a>
-        <a class="menu-link" href="#contact"><span>02</span><b data-i18n="nav.contact">Contact</b></a>
+        <a class="menu-link" href="#about"><span>01</span><b data-i18n="nav.about">About</b></a>
+        <a class="menu-link" href="#services"><span>02</span><b data-i18n="nav.services">Services</b></a>
+        <a class="menu-link" href="#magazine"><span>03</span><b data-i18n="nav.magazine">Magazine</b></a>
+        <a class="menu-link" href="#events"><span>04</span><b data-i18n="nav.events">Events</b></a>
+        <a class="menu-link" href="#partners"><span>05</span><b data-i18n="nav.partners">Partners</b></a>
+        <a class="menu-link" href="#cases"><span>06</span><b data-i18n="nav.cases">Cases</b></a>
+        <a class="menu-link" href="#contact"><span>07</span><b data-i18n="nav.contact">Contact</b></a>
       </nav>
       <div class="menu-footer">
         <div class="lang-switch" role="group" aria-label="Language">
@@ -126,7 +136,7 @@
           </h1>
           <p class="hero-body" data-i18n="hero.body"></p>
           <div class="hero-actions">
-            <a class="btn-ghost" href="#editions">
+            <a class="btn-ghost" href="#magazine">
               <span data-i18n="hero.cta">Open today’s edition</span>
               <span class="arrow" aria-hidden="true"></span>
             </a>
@@ -166,35 +176,87 @@
         <p class="featured-hint" data-i18n="featured.hint"></p>
       </section>
 
-      <section class="ribbon" id="editions" aria-label="Press departments">
-        <div class="ribbon-shell">
-          <button type="button" class="ribbon-all" data-kind="" aria-pressed="true">
-            <span data-i18n="ribbon.all">The edition</span>
-          </button>
-          <div class="ribbon-track" id="type-track">
-            <div class="ribbon-run" id="type-rail"></div>
+      <section class="section house house-paper" id="about">
+        <div class="wrap about-grid reveal">
+          <div>
+            <p class="eyebrow" data-i18n="about.eyebrow">House</p>
+            <h2 class="section-title" data-i18n="about.title">The work is invisible. The outcome is not.</h2>
+            <p class="lede" data-i18n="about.lead"></p>
+            <p class="house-copy" data-i18n="about.body"></p>
+            <p class="house-copy" data-i18n="about.body2"></p>
           </div>
+          <ol class="principle-list" id="principle-list"></ol>
         </div>
       </section>
 
-      <section class="section desk" id="desk">
-        <div class="desk-wrap">
-          <header class="desk-masthead reveal">
-            <div class="desk-folio">
-              <p class="eyebrow" data-i18n="desk.eyebrow">Press</p>
-              <p class="desk-volume">
-                <span data-i18n="desk.volume">Vol. I</span>
-                <span aria-hidden="true"> · </span>
-                <span id="desk-count">01–15</span>
-              </p>
+      <section class="section house house-ink" id="services">
+        <div class="wrap reveal">
+          <p class="eyebrow" data-i18n="services.eyebrow">Retainers</p>
+          <h2 class="section-title" data-i18n="services.title">What the house is hired to do.</h2>
+          <p class="lede" data-i18n="services.lead"></p>
+          <ol class="service-list" id="service-list"></ol>
+        </div>
+      </section>
+
+      <section class="magazine" id="magazine">
+        <div class="ribbon" id="editions" aria-label="Press departments">
+          <div class="ribbon-shell">
+            <button type="button" class="ribbon-all" data-kind="" aria-pressed="true">
+              <span data-i18n="ribbon.all">The edition</span>
+            </button>
+            <div class="ribbon-track" id="type-track">
+              <div class="ribbon-run" id="type-rail"></div>
             </div>
-            <h2 class="desk-title" id="desk-title" data-i18n="desk.title">Fifteen dispatches.</h2>
-            <p class="desk-lead" id="desk-lead" data-i18n="desk.body"></p>
-            <p class="desk-colophon" data-i18n="desk.colophon"></p>
-            <p class="desk-showing" id="desk-showing" hidden></p>
-            <div class="desk-rule" aria-hidden="true"></div>
-          </header>
-          <div class="news-grid" id="news-grid"></div>
+          </div>
+        </div>
+
+        <section class="section desk" id="desk">
+          <div class="desk-wrap">
+            <header class="desk-masthead reveal">
+              <div class="desk-folio">
+                <p class="eyebrow" data-i18n="desk.eyebrow">Magazine</p>
+                <p class="desk-volume">
+                  <span data-i18n="desk.volume">Vol. I</span>
+                  <span aria-hidden="true"> · </span>
+                  <span id="desk-count">01–15</span>
+                </p>
+              </div>
+              <h2 class="desk-title" id="desk-title" data-i18n="desk.title">Fifteen dispatches.</h2>
+              <p class="desk-lead" id="desk-lead" data-i18n="desk.body"></p>
+              <p class="desk-colophon" data-i18n="desk.colophon"></p>
+              <p class="desk-showing" id="desk-showing" hidden></p>
+              <div class="desk-rule" aria-hidden="true"></div>
+            </header>
+            <div class="news-grid" id="news-grid"></div>
+          </div>
+        </section>
+      </section>
+
+      <section class="section house house-ink" id="events">
+        <div class="wrap reveal">
+          <p class="eyebrow" data-i18n="events.eyebrow">The season</p>
+          <h2 class="section-title" data-i18n="events.title">Evenings the house still keeps.</h2>
+          <p class="lede" data-i18n="events.lead"></p>
+          <ol class="event-list" id="event-list"></ol>
+        </div>
+      </section>
+
+      <section class="section house house-paper" id="partners">
+        <div class="wrap reveal">
+          <p class="eyebrow" data-i18n="partners.eyebrow">Rooms</p>
+          <h2 class="section-title" data-i18n="partners.title">Titles we keep, and houses we do not name.</h2>
+          <p class="lede" data-i18n="partners.lead"></p>
+          <ul class="partner-list" id="partner-list"></ul>
+          <p class="house-note" data-i18n="partners.note"></p>
+        </div>
+      </section>
+
+      <section class="section house house-ink" id="cases">
+        <div class="wrap reveal">
+          <p class="eyebrow" data-i18n="cases.eyebrow">The file</p>
+          <h2 class="section-title" data-i18n="cases.title">Work that can be shown.</h2>
+          <p class="lede" data-i18n="cases.lead"></p>
+          <div class="case-grid" id="case-grid"></div>
         </div>
       </section>
 

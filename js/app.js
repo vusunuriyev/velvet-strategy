@@ -243,6 +243,75 @@
     revealApi.refresh();
   }
 
+  function renderHouse(dict) {
+    const principles = $("#principle-list");
+    if (principles && dict.about && Array.isArray(dict.about.principles)) {
+      principles.innerHTML = dict.about.principles
+        .map(
+          (item, i) => `<li class="principle">
+  <span aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+  <b>${esc(item.t)}</b>
+  <p>${esc(item.d)}</p>
+</li>`
+        )
+        .join("");
+    }
+
+    const services = $("#service-list");
+    if (services && dict.services && Array.isArray(dict.services.items)) {
+      services.innerHTML = dict.services.items
+        .map(
+          (item, i) => `<li class="service-item">
+  <span aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+  <b>${esc(item.t)}</b>
+  <p>${esc(item.d)}</p>
+</li>`
+        )
+        .join("");
+    }
+
+    const events = $("#event-list");
+    if (events && dict.events && Array.isArray(dict.events.items)) {
+      events.innerHTML = dict.events.items
+        .map(
+          (item, i) => `<li class="event-item">
+  <span aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+  <p class="event-meta">${esc(item.date)} · ${esc(item.place)}</p>
+  <b>${esc(item.t)}</b>
+  <p>${esc(item.d)}</p>
+</li>`
+        )
+        .join("");
+    }
+
+    const partners = $("#partner-list");
+    if (partners && dict.partners && Array.isArray(dict.partners.names)) {
+      partners.innerHTML = dict.partners.names
+        .map(
+          (name) => `<li>
+  <button type="button" data-outlet="${esc(name)}">${esc(name)}</button>
+</li>`
+        )
+        .join("");
+    }
+
+    const cases = $("#case-grid");
+    if (cases && dict.cases && Array.isArray(dict.cases.items)) {
+      cases.innerHTML = dict.cases.items
+        .map(
+          (item) => `<article class="case-card">
+  <img src="assets/news/news-${esc(item.img)}.jpg" alt="" width="900" height="1200" loading="lazy" decoding="async" />
+  <span>${esc(item.sector)} · ${esc(item.year)}</span>
+  <b>${esc(item.t)}</b>
+  <p>${esc(item.d)}</p>
+</article>`
+        )
+        .join("");
+    }
+
+    revealApi.refresh();
+  }
+
   function renderLegal(dict, kind) {
     const root = $("#legal-sections");
     if (!root || !dict[kind]) return;
@@ -277,6 +346,7 @@
     });
 
     renderHome(dict);
+    renderHouse(dict);
     refreshArticle();
     const legalKind = document.body.dataset.legal;
     if (legalKind) renderLegal(dict, legalKind);
@@ -655,9 +725,7 @@
   }
 
   function setupPress() {
-    const row = $("#press-marks");
-    if (!row) return;
-    row.addEventListener("click", (e) => {
+    const onOutlet = (e) => {
       const btn = e.target.closest("[data-outlet]");
       if (!btn) return;
       const next = btn.dataset.outlet || "";
@@ -665,7 +733,9 @@
       const dict = window.I18N[newsLang()] || window.I18N.en;
       renderHome(dict);
       scrollToDesk();
-    });
+    };
+    $("#press-marks")?.addEventListener("click", onOutlet);
+    $("#partners")?.addEventListener("click", onOutlet);
   }
 
   function scrollToDesk() {
@@ -685,10 +755,11 @@
       const compact = window.scrollY > 28;
       header.classList.toggle("is-scrolled", compact);
       header.classList.toggle("is-compact", compact);
-      root.style.setProperty("--header-h", compact ? "3.15rem" : "4.75rem");
+      root.style.setProperty("--header-h", header.offsetHeight + "px");
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
   }
 
   function prefersReduce() {
