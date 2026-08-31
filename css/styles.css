@@ -636,10 +636,10 @@ body.menu-open {
 
 .hero-bg {
   position: absolute;
-  inset: -8%;
-  background: #081830 url("../assets/hero-dubai.jpg") center 38% / cover no-repeat;
-  transform: scale(1.08);
-  filter: brightness(0.9) saturate(1.08) contrast(1.06);
+  inset: -4%;
+  background: #081830 url("../assets/hero-dubai.jpg") center 42% / cover no-repeat;
+  transform: scale(1.04);
+  filter: brightness(0.92) saturate(1.06) contrast(1.04);
 }
 
 html.is-ready .hero-bg,
@@ -861,10 +861,10 @@ html[dir="rtl"] .btn-ghost .arrow::after {
 
 @keyframes ken {
   from {
-    transform: scale(1.08) translate3d(0, 0, 0);
+    transform: scale(1.04) translate3d(0, 0, 0);
   }
   to {
-    transform: scale(1.16) translate3d(-1.5%, 1%, 0);
+    transform: scale(1.1) translate3d(-1.2%, 0.8%, 0);
   }
 }
 
