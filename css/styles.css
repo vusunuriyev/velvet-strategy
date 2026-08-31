@@ -694,39 +694,6 @@ html.curtain-skip .hero-copy > * {
   animation: none;
 }
 
-.hero-edition {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.45rem 0.55rem;
-  margin: 0 0 1.15rem;
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 0 rgba(198, 176, 138, 0.7);
-  animation: live 1.8s ease-out infinite;
-}
-
-@keyframes live {
-  0% {
-    box-shadow: 0 0 0 0 rgba(198, 176, 138, 0.55);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(198, 176, 138, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(198, 176, 138, 0);
-  }
-}
-
 .hero-title {
   margin: 0;
   color: var(--gold);
@@ -2932,8 +2899,7 @@ html[lang="ar"] .article-bar-meta,
 html[lang="ar"] .article-back,
 html[lang="ar"] .article-x,
 html[lang="ar"] .news-kind,
-html[lang="ar"] .featured-hint,
-html[lang="ar"] .hero-edition {
+html[lang="ar"] .featured-hint {
   letter-spacing: 0;
   text-transform: none;
   font-family: var(--ar-serif);
@@ -3171,7 +3137,6 @@ html[lang="ru"] .article-well h1 {
   .news-card,
   .heat-card,
   .heat-frame img,
-  .live-dot,
   .film-ring,
   .ribbon-run,
   .curtain,

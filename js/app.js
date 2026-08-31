@@ -332,20 +332,6 @@
       .join("");
   }
 
-  function stampEditionDate() {
-    const lang = newsLang();
-    const locale = lang === "ar" ? "ar" : lang === "ru" ? "ru-RU" : "en-GB";
-    $$("[data-edition-date]").forEach((el) => {
-      el.dateTime = new Date().toISOString().slice(0, 10);
-      el.textContent = new Intl.DateTimeFormat(locale, {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      }).format(new Date());
-    });
-  }
-
   function pageTitle(dict) {
     const legalKind = document.body.dataset.legal;
     const page = document.body.dataset.page;
@@ -396,7 +382,6 @@
     renderHome(dict);
     renderHotNews();
     renderHouse(dict);
-    stampEditionDate();
     pageTitle(dict);
     markNav();
     refreshArticle();

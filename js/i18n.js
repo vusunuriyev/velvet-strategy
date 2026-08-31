@@ -25,9 +25,8 @@ window.I18N = {
       kicker: "Global PR & communications advisors",
       accent: "",
       body: "Building brands, shaping reputations and creating connections worldwide.",
-      cta: "Open today’s edition",
+      cta: "Explore our services",
       film: "Watch the film",
-      edition: "Late city edition",
     },
     curtain: {
       skip: "Skip",
@@ -317,9 +316,8 @@ window.I18N = {
       kicker: "مستشارون عالميون في العلاقات العامة والاتصالات",
       accent: "",
       body: "نبني العلامات، ونشكّل السمعة، ونصنع الصلات حول العالم.",
-      cta: "افتح طبعة اليوم",
+      cta: "استكشف خدماتنا",
       film: "شاهد الفيلم",
-      edition: "الطبعة المتأخرة",
     },
     curtain: {
       skip: "تخطٍ",
@@ -557,9 +555,8 @@ window.I18N = {
       kicker: "Глобальные советники по PR и коммуникациям",
       accent: "",
       body: "Создаём бренды, формируем репутацию и выстраиваем связи по всему миру.",
-      cta: "Открыть сегодняшний выпуск",
+      cta: "Изучить наши услуги",
       film: "Смотреть фильм",
-      edition: "Поздний городской выпуск",
     },
     curtain: {
       skip: "Пропустить",
